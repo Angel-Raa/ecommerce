@@ -1,3 +1,44 @@
+# Ecommerce
+
+![Ejemplo del proyecto](https://github.com/Angel-Raa/ecommerce/blob/main/sample/cap.png)
+
+**Estado:** Proyecto en Proceso
+
+Este es un proyecto de ecommerce en desarrollo, diseñado para ofrecer una plataforma robusta y escalable para la compra y venta de productos en línea. La aplicación combina tecnologías de frontend y backend modernas para crear una experiencia de usuario rápida, segura y fácil de usar.
+
+## Tecnologías Utilizadas
+
+Este proyecto integra un conjunto de tecnologías para crear una aplicación completa y eficiente:
+
+- **Frontend**: 
+  - [React](https://reactjs.org/)
+  - **TypeScript** 
+
+- **Backend**:
+  - [Java](https://www.oracle.com/java/) 
+  - [Spring Boot](https://spring.io/projects/spring-boot)
+
+- **Base de Datos**:
+  - [PostgreSQL](https://www.postgresql.org/) 
+
+- **Contenedorización**:
+  - [Docker](https://www.docker.com/) 
+
+## Características (Planes)
+
+- **Autenticación y Autorización**: Sistema de inicio de sesión y registro seguro con control de permisos.
+- **Gestión de Productos**: Creación, edición, eliminación y visualización de productos.
+- **Carrito de Compras**: Funcionalidad para añadir, actualizar y eliminar productos del carrito.
+- **Procesamiento de Pagos**: Integración con pasarelas de pago para transacciones seguras.
+- **Interfaz Amigable**: Diseño intuitivo y responsivo para mejorar la experiencia del usuario.
+
+## Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Angel-Raa/ecommerce.git
+   ```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -31,16 +72,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
