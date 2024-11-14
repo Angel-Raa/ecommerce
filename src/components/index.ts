@@ -1,0 +1,5 @@
+export * from "./home/Banner"
+export  * from "./shared/navbar/Navbar"
+export * from "./shared/footer/Footer"
+export * from "./shared/logo/‎Logo"
+export * from "./home/Newsletter"

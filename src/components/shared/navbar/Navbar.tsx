@@ -7,7 +7,8 @@ import {NavItem} from "../../../utils";
 import {Link} from "react-router-dom";
 import {FaBarsStaggered} from "react-icons/fa6";
 import {HiOutlineSearch, HiOutlineShoppingBag} from "react-icons/hi";
-import {Logo} from "../logo";
+import {Logo} from "../logo/‎Logo";
+
 
 const navItems: NavItem[] = [
     {
