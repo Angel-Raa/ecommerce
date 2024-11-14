@@ -4,11 +4,7 @@
 
 **Estado:** Proyecto en Proceso
 
-Este es un proyecto de ecommerce en desarrollo, diseñado para ofrecer una plataforma robusta y escalable para la compra y venta de productos en línea. La aplicación combina tecnologías de frontend y backend modernas para crear una experiencia de usuario rápida, segura y fácil de usar.
-
 ## Tecnologías Utilizadas
-
-Este proyecto integra un conjunto de tecnologías para crear una aplicación completa y eficiente:
 
 - **Frontend**: 
   - [React](https://reactjs.org/)
