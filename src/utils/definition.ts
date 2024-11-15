@@ -11,3 +11,4 @@ export interface SocialLinks {
   icon: React.JSX.Element;
 
 }
+

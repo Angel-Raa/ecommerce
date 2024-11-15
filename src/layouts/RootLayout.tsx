@@ -13,7 +13,7 @@ const {pathname} = useLocation();
                         <Banner />
                     )
                 }
-                <main className={`container my-8 flex-1`}>
+                <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 my-10">
                     <Outlet/>
                 </main>
                 {
