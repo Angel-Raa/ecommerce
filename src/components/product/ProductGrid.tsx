@@ -1,4 +1,5 @@
 import React from "react";
+import {CartProductDetails} from "./CartProductDetails";
 interface Props {
     title: string,
     product: any[]
@@ -15,9 +16,18 @@ export  const ProductGrid = ({title, product = []} :Props):React.JSX.Element => 
 
                     {
                         product.map((item)=> (
-                         <div className="flex flex-col gap-6 relative" key={item.id}>
-                             <h3>Products sample</h3>
-                         </div>
+                         <CartProductDetails img={item.img[0]} key={item.id}
+                         name={item.name}
+                         price={item.price}
+                         colors={item.colors}
+                         slug={item.slug}
+                         variants={item.variants}
+
+
+
+
+
+                         />
                         ))
                     }
 
