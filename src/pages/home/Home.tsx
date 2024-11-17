@@ -4,8 +4,6 @@ import {prepareProducts} from "../../utils";
 
 const prepareRecentProduct = prepareProducts(recentCelulares);
 const preparePopularProduct = prepareProducts(popularCelulares);
-
-console.log(prepareRecentProduct);
 export  const Home = ():React.JSX.Element => {
 
     return (
