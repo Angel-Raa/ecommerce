@@ -1,15 +1,43 @@
+import {Color, Product, VariantProduct} from "./definition";
 
-export const prepareProducts =  (product:any[]) => {
+export const prepareProducts = (products: Product[]) => {
+    return products.map(product => {
 
-    return product.map((product:any) => {
+        const colors = product.variants.reduce(
+            (acc: Color[], variant: VariantProduct) => {
+                const existingColor = acc.find(
+                    item => item.color === variant.color
+                );
+
+                if (existingColor) {
+                    // Si ya existe el color, comparamos los precios
+                    existingColor.price = Math.min(
+                        existingColor.price,
+                        variant.price
+                    );
+                } // Mantenemos el precio mínimo
+                else {
+                    acc.push({
+                        color: variant.color,
+                        price: variant.price,
+                        name: variant.color_name,
+                    });
+                }
+
+                return acc;
+            },
+            []
+        );
+
+
+        const price = Math.min(...colors.map(item => item.price));
+
+
         return {
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            img: product.image[0],
-            description: product.description,
-            slug: product.slug,
-            variant: product.variant,
-        }
-    })
-}
+            ...product,
+            price,
+            colors: colors.map(({name, color}) => ({name, color})),
+            variants: product.variants,
+        };
+    });
+};

@@ -2,6 +2,7 @@ import {JSX,  useState} from "react";
 import {Link} from "react-router-dom";
 import {FiPlus} from "react-icons/fi";
 import {ProductColorDot} from "./ProductColorDot";
+import {formatPrice, VariantProduct} from "../../utils";
 interface Props {
     img: string;
     name: string;
@@ -11,7 +12,7 @@ interface Props {
         name: string;
         color: string;
     }[];
-    variants: any[]
+    variants: VariantProduct[]
 }
 
 export const CartProductDetails = ({
@@ -19,11 +20,11 @@ export const CartProductDetails = ({
                                    }:Props):JSX.Element => {
     const [activeColor, setActiveColor] = useState<{name:string, color:string}>(colors[0])
     const selectedVariant = variants.find((variant) => variant.color === activeColor.name)
-    const stock = selectedVariant.stock || 0
+    const stock = selectedVariant?.stock || 0
     return (
         <>
         <div className="flex flex-col gap-6 relative">
-              <Link to={ `/phone/${slug}` }  className="flex relative group ">
+              <Link to={ `/phone/${slug}` }  className="flex relative group overflow-hidden ">
                 <div className="flex h-[360px] w-full items-center justify-center py-2 lg:h-[250px]">
                  <img src={img} alt={name} className="object-contain h-full w-full"/>
                 </div>
@@ -37,7 +38,9 @@ export const CartProductDetails = ({
                     {name}
                 </p>
                 <p className={`text-[15px] font-medium`}>
-                    {price}
+                    {
+                        formatPrice(price)
+                    }
                 </p>
                 <div className="flex gap-3">
                     {
@@ -47,11 +50,13 @@ export const CartProductDetails = ({
                     }
                 </div>
             </div>
-            <div className="absolute top-2 left-2">
-                {
-                    stock === 0 && (<span>Not found</span>)
-                }
-            </div>
+            {/**
+             <div className="absolute top-2 left-2">
+             {
+             stock === 0 && (<span>Not found</span>)
+             }
+             </div>
+             */}
 
         </div>
         </>
