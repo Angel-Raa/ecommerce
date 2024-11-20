@@ -1,10 +1,13 @@
 import React from "react";
 
 import {NavLink} from "react-router-dom";
-import {NavItem} from "../../../utils";
 
+interface Props {
+    link: string,
+    title: string,
+}
 
-export const NavLinks = ({link, icon, title}: NavItem): React.JSX.Element => {
+export const NavLinks = ({link,  title}: Props): React.JSX.Element => {
     return (
         <>
 
