@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
                 element:<Home />
             },
             {
-                path:"cel",
+                path:"celulares",
                 element:<Phone />
             },
             {

@@ -1,5 +1,5 @@
 import React from "react";
-import {JSONContent} from "@tiptap/react";
+import {Json} from "../supabase/supabase";
 
 export interface NavItem {
   title: string;
@@ -13,10 +13,19 @@ export interface SocialLinks {
 
 }
 
-export interface  Color {
+export interface Color {
   name: string;
   color: string;
-  price:number
+  price: number;
+}
+
+export interface VariantProduct {
+  id: string;
+  stock: number;
+  price: number;
+  storage: string;
+  color: string;
+  color_name: string;
 }
 
 export interface Product {
@@ -25,13 +34,11 @@ export interface Product {
   brand: string;
   slug: string;
   features: string[];
-  description: JSONContent;
+  description: Json;
   images: string[];
   created_at: string;
   variants: VariantProduct[];
 }
-
-
 
 export interface PreparedProducts {
   id: string;
@@ -39,7 +46,7 @@ export interface PreparedProducts {
   brand: string;
   slug: string;
   features: string[];
-  description: JSONContent;
+  description: Json;
   images: string[];
   created_at: string;
   price: number;
@@ -48,12 +55,4 @@ export interface PreparedProducts {
     color: string;
   }[];
   variants: VariantProduct[];
-}
-export interface VariantProduct {
-  id:string
-  stock: number;
-  price: number;
-  storage:string
-  color:string
-  color_name:string
 }

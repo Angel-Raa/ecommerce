@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
     {
         title: "Celulares",
         icon: <IoIosPhonePortrait size={30}/>,
-        link: "/cel"
+        link: "/celulares"
     },
     {
         title: "Nosotros",

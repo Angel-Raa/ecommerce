@@ -1,10 +1,19 @@
-import {prepareProducts} from "../../utils";
-import {allCelulares} from "../../data/init";
-import {CartProductDetails, FilterBar} from "../../components";
-import React from "react";
+import {prepareProducts,} from "../../utils";
+import {CartProductDetails, FilterBar, Loading} from "../../components";
+import React, {useState} from "react";
+import {useFilteredProducts} from "../../hook";
+import {Pagination} from "../../components/shared/pagination/Pagination";
 
-const preparePhoneProducts = prepareProducts(allCelulares);
 export  const Phone = () => {
+    const [page, setPage] = useState<number>(1);
+    const [selectBrands, setSelectBrands] = useState<string[]>([])
+    const {products = [], isLoading, total} = useFilteredProducts({
+        page, brands: selectBrands,
+    });
+
+    const preparePhoneProducts =   prepareProducts(products);
+
+
     return (
         <>
 
@@ -13,28 +22,39 @@ export  const Phone = () => {
             </h1>
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 {/**TODO: Filtros*/}
-                 <FilterBar />
-                <div className="col-span-2 lg:col-span-2 xl:col-span-4 flex flex-col gap-2">
+                 <FilterBar setSelectBrands={setSelectBrands} selectedBrands={selectBrands}/>
+                {
+                    isLoading ? (
+                        (<Loading />)
+                    ) : (
+                        <div className="col-span-2 lg:col-span-2 xl:col-span-4 flex flex-col gap-2">
 
-                    <div className="grid grid-cols-2 gap-3 gap-y-10 xl:grid-cols-4">
+                            <div className="grid grid-cols-2 gap-3 gap-y-10 xl:grid-cols-4">
 
-                        {/**Product */}
-                        {
-                            preparePhoneProducts.map((item) => (
-                                <CartProductDetails img={item.images[0]} key={item.id}
-                                                    name={item.name}
-                                                    price={item.price}
-                                                    colors={item.colors}
-                                                    slug={item.slug}
-                                                    variants={item.variants}
+                                {/**Product */}
+                                {
+                                    preparePhoneProducts.map((item) => (
+                                        <CartProductDetails img={item.images[0]} key={item.id}
+                                                            name={item.name}
+                                                            price={item.price}
+                                                            colors={item.colors}
+                                                            slug={item.slug}
+                                                            variants={item.variants}
 
 
-                                />
-                            ))
-                        }
-                    </div>
-                    {/** TODO: Paginacion*/}
-                </div>
+                                        />
+                                    ))
+                                }
+                            </div>
+                            {/** TODO: Paginacion*/}
+
+                            <Pagination totalItems={total} page={page} setPage={setPage} />
+                        </div>
+
+
+                    )
+                }
+
             </div>
         </>
     )
