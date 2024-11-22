@@ -24,7 +24,7 @@ export const CartProductDetails = ({
     return (
         <>
         <div className="flex flex-col gap-6 relative">
-              <Link to={ `/phone/${slug}` }  className="flex relative group overflow-hidden ">
+              <Link to={ `/celulares/${slug}` }  className="flex relative group overflow-hidden ">
                 <div className="flex h-[360px] w-full items-center justify-center py-2 lg:h-[250px]">
                  <img src={img} alt={name} className="object-contain h-full w-full"/>
                 </div>
