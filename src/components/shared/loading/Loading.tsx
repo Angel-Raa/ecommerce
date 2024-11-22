@@ -1,10 +1,10 @@
+import {ImSpinner9} from "react-icons/im";
+
 export const Loading = (): React.JSX.Element => {
     return (
         <>
-            <div className="col-span-2 flex flex-col justify-center h-[500px]">
-                <p className="text-2xl">
-                    Cargando...
-                </p>
+            <div className="flex items-center justify-center h-screen bg-white">
+                <ImSpinner9 size={80} className={"animate-spin"}/>
             </div>
         </>
     )
