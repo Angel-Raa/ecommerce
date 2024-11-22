@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import {FaBarsStaggered} from "react-icons/fa6";
 import {HiOutlineSearch, HiOutlineShoppingBag} from "react-icons/hi";
 import {Logo} from "../logo/‎Logo";
+import {useGlobalStore} from "../../../store/global.store";
 
 
 const navItems: NavItem[] = [
@@ -28,6 +29,8 @@ const navItems: NavItem[] = [
     }
 ]
 export const NavBar = (): React.JSX.Element => {
+    const openSheet = useGlobalStore(state => state.openSheet);
+
     return (
         <>
             <header
@@ -45,7 +48,7 @@ export const NavBar = (): React.JSX.Element => {
                 {/* Acciones */}
                 <div className="flex items-center gap-5">
                     {/* Botón de búsqueda */}
-                    <button>
+                    <button onClick={() => openSheet('search')}>
                         <HiOutlineSearch size={25}/>
                     </button>
 
@@ -58,7 +61,7 @@ export const NavBar = (): React.JSX.Element => {
                     </Link>
 
                     {/* Carrito con contador */}
-                    <button className="relative">
+                    <button className="relative" onClick={() => openSheet('cart')}>
                     <span
                         className="absolute -bottom-2 -right-2 w-5 h-5 bg-black text-white text-xs rounded-full flex items-center justify-center">
                         0

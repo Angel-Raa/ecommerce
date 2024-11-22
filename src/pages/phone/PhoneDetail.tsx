@@ -6,6 +6,7 @@ import {CiDeliveryTruck} from "react-icons/ci";
 import {Link} from "react-router-dom";
 import {BsChatLeftText} from "react-icons/bs";
 import {useProduct} from "../../hook";
+import {useCounterStore} from "../../store/counter.store";
 
 interface Acc {
     [key: string]: {
@@ -20,6 +21,9 @@ export const PhoneDetail = (): React.JSX.Element => {
     const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
     const [selectedVariant, setSelectedVariant] = useState<VariantProduct | null>(null);
     const {data: product, isError, isLoading} = useProduct(slug || '');
+    const counter = useCounterStore(state => state.counter);
+    const increment = useCounterStore(state => state.increment);
+    const decrement = useCounterStore(state => state.decrement);
 
 
     // Agrupamos las variantes por color
@@ -86,6 +90,7 @@ export const PhoneDetail = (): React.JSX.Element => {
             </>
         )
     }
+
 
 
 
@@ -176,7 +181,7 @@ export const PhoneDetail = (): React.JSX.Element => {
                                 disabled={true}>Agostado</button>)
                             :
                             (
-                                (<Counter/>)
+                                (<Counter counter={counter} increment={increment} decrement={decrement}/>)
                             )
                     }
 

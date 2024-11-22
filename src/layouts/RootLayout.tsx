@@ -1,9 +1,11 @@
 import React from "react";
 import {Outlet, useLocation} from "react-router";
-import {Banner, NavBar, Footer, Newsletter} from "../components";
+import {Banner, NavBar, Footer, Newsletter, Sheet} from "../components";
+import {useGlobalStore} from "../store/global.store";
 
 export const RootLayout = (): React.JSX.Element => {
 const {pathname} = useLocation();
+const isSheetOpen =  useGlobalStore(state => state.isSheetOpen);
     return (
         <>
             <div className={`h-screen flex flex-col `}>
@@ -21,9 +23,12 @@ const {pathname} = useLocation();
                         <Newsletter/>
                     )
                 }
-                <div>
+
+                    {
+                        isSheetOpen && (<Sheet />)
+                    }
                     <Footer />
-                </div>
+
             </div>
 
         </>
