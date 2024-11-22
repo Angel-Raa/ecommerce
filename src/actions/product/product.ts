@@ -43,8 +43,37 @@ export const getFilteredProducts = async ({page = 1, brands = []} : {
 
 export  const getRecentProducts = async () => {
 
+    const {data:products, error} =  await supabase
+        .from('products')
+        .select('*, variants(*)')
+        .order('created_at', { ascending: false }).limit(4)
 
-    return {
-
+    //console.log(`Recent product ${JSON.stringify(products)} products`);
+    if (error) {
+        console.log(error.message);
+        throw new Error(error.message);
     }
+
+    return  products
 }
+
+export  const getRandomProducts = async () => {
+
+    const {data:products, error} =  await supabase
+        .from('products')
+        .select('*, variants(*)')
+        .limit(20);
+
+    if (error) {
+        console.log(error.message);
+        throw new Error(error.message);
+    }
+
+    const random = products.sort(() => 0.5 - Math.random()).slice(0, 4);
+
+
+    console.log(`Random products for ${JSON.stringify(products)} products`);
+
+    return  random;
+}
+

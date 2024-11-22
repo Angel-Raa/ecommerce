@@ -1,1 +1,1 @@
-export {getProducts, getFilteredProducts, getRecentProducts} from "./product/product"
+export {getProducts, getFilteredProducts, getRecentProducts, getRandomProducts} from "./product/product"
