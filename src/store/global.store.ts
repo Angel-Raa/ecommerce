@@ -6,7 +6,8 @@ export interface GlobalStore {
     isSheetOpen: boolean;
     isSheetClosed: boolean;
     sheetContent: Content;
-    // TODO NavBar mobile
+    activeNavMobile:boolean;
+    setActiveNavMobile:(active:boolean)=>void;
     openSheet:(content:Content) => void;
     closeSheet:() => void;
 }
@@ -14,6 +15,10 @@ const storeApi:StateCreator<GlobalStore> = (set) => ({
     isSheetOpen:false,
     isSheetClosed:false,
     sheetContent:null,
+    activeNavMobile:false,
+    setActiveNavMobile:(active:boolean)=>{
+        set({activeNavMobile:active});
+    },
     openSheet:(content:Content) => {
 
         set({isSheetOpen:true, sheetContent:content});

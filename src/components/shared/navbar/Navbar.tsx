@@ -11,7 +11,7 @@ import {Logo} from "../logo/‎Logo";
 import {useGlobalStore} from "../../../store/global.store";
 
 
-const navItems: NavItem[] = [
+export const navItems: NavItem[] = [
     {
         title: "Inicio",
         icon: <CiHome size={30}/>,
@@ -30,6 +30,7 @@ const navItems: NavItem[] = [
 ]
 export const NavBar = (): React.JSX.Element => {
     const openSheet = useGlobalStore(state => state.openSheet);
+    const setActiveNavMobile = useGlobalStore(state => state.setActiveNavMobile);
 
     return (
         <>
@@ -70,7 +71,7 @@ export const NavBar = (): React.JSX.Element => {
                     </button>
 
                     {/* Menú hamburguesa para móviles */}
-                    <button className="md:hidden">
+                    <button className="md:hidden" onClick={() => setActiveNavMobile(true)}>
                         <FaBarsStaggered size={25}/>
                     </button>
 

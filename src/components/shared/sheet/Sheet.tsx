@@ -34,7 +34,7 @@ export const Sheet = ():React.JSX.Element => {
         <>
             <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end animate-fade-in  ">
                <div ref={sheetRef}
-                    className={"bg-white text-black h-screen x-[500px] shadow-lg animate-slide-in " }>
+                    className={"bg-white text-black h-screen w-[500px] shadow-lg animate-slide-in " }>
                    {renderContent()}
                </div>
             </div>
