@@ -13,6 +13,7 @@ export  const Phone = () => {
 
     const preparePhoneProducts =   prepareProducts(products);
 
+    console.log(preparePhoneProducts);
 
     return (
         <>
@@ -46,8 +47,6 @@ export  const Phone = () => {
                                     ))
                                 }
                             </div>
-                            {/** TODO: Paginacion*/}
-
                             <Pagination totalItems={total} page={page} setPage={setPage} />
                         </div>
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 type  tagType = 'Nuevo'| 'Agotado';
 interface Props {
     contentTag: tagType,

@@ -56,3 +56,14 @@ export interface PreparedProducts {
   }[];
   variants: VariantProduct[];
 }
+
+export interface ICartItem {
+  variantId: string
+  productId: string
+  name: string
+  color:string;
+  storage: string;
+  price: number;
+  quantity: number;
+  image: string;
+}

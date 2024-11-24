@@ -9,6 +9,7 @@ import {FaBarsStaggered} from "react-icons/fa6";
 import {HiOutlineSearch, HiOutlineShoppingBag} from "react-icons/hi";
 import {Logo} from "../logo/‎Logo";
 import {useGlobalStore} from "../../../store/global.store";
+import {useCartStore} from "../../../store/cart.store";
 
 
 export const navItems: NavItem[] = [
@@ -31,17 +32,18 @@ export const navItems: NavItem[] = [
 export const NavBar = (): React.JSX.Element => {
     const openSheet = useGlobalStore(state => state.openSheet);
     const setActiveNavMobile = useGlobalStore(state => state.setActiveNavMobile);
+    const totalItemsInCart = useCartStore(state => state.totalItemsInCart);
 
     return (
         <>
             <header
                 className="bg-white text-gray-900 py-4 flex items-center justify-between px-5 border-b border-slate-200 lg:px-12">
                 {/* Logo */}
-                <Logo />
+                <Logo/>
 
                 {/* Navegación */}
                 <nav className="space-x-5 hidden md:flex">
-                    {navItems.map((item,i) => (
+                    {navItems.map((item, i) => (
                         <NavLinks key={i} {...item}/>
                     ))}
                 </nav>
@@ -65,7 +67,7 @@ export const NavBar = (): React.JSX.Element => {
                     <button className="relative" onClick={() => openSheet('cart')}>
                     <span
                         className="absolute -bottom-2 -right-2 w-5 h-5 bg-black text-white text-xs rounded-full flex items-center justify-center">
-                        0
+                            {totalItemsInCart}
                     </span>
                         <HiOutlineShoppingBag size={25}/>
                     </button>

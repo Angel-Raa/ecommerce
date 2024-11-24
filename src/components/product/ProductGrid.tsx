@@ -7,6 +7,7 @@ interface Props {
 }
 
 export  const ProductGrid = ({title, product = []} :Props):React.JSX.Element => {
+
     return (
         <>
             <div className="my-32">

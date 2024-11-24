@@ -4,10 +4,13 @@ import {IoMdClose} from "react-icons/io";
 import {useGlobalStore} from "../../../store/global.store";
 import {formatPrice, Product} from "../../../utils";
 import {searchProduct} from "../../../actions/product/product";
+import {useNavigate} from "react-router";
 
 export const Search: React.FC = ():React.JSX.Element => {
     const [search, setSearch] = useState<string>("")
     const [searchResults, setSearchResults] = useState<Product[]>([])
+    const navigate= useNavigate();
+
     const closeSheet = useGlobalStore(state => state.closeSheet);
     const handleSearch = async (event:React.FormEvent) => {
         event.preventDefault();
@@ -43,7 +46,12 @@ export const Search: React.FC = ():React.JSX.Element => {
                             {
                                 searchResults.map((item:Product) => (
                                     <li className={"py-2 items-center gap-3" } key={item.id}>
-                                        <button className={"flex items-center gap-3"}>
+                                        <button
+                                            onClick={() => {
+                                                navigate(`/celulares/${item.slug}`);
+                                                closeSheet()
+                                            } }
+                                            className={"flex items-center gap-3"}>
                                             <img className={"h-20 w-20 object-contain p-3"} alt={item.name} src={item.images[0]}/>
                                             <div className={"flex flex-col gap-1"}>
                                                 <p className={"text-sm font-medium group-hover:underline"}>

@@ -1,12 +1,14 @@
 import {formatPrice, VariantProduct} from "../../utils";
 import {CellNotFound, Counter, ImageGallery, Loading, ProductDescription, Separator, Tag} from "../../components";
 import React, {useEffect, useMemo, useState} from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import {CiDeliveryTruck} from "react-icons/ci";
 import {Link} from "react-router-dom";
 import {BsChatLeftText} from "react-icons/bs";
 import {useProduct} from "../../hook";
 import {useCounterStore} from "../../store/counter.store";
+import {useCartStore} from "../../store/cart.store";
+import toast from "react-hot-toast";
 
 interface Acc {
     [key: string]: {
@@ -17,13 +19,16 @@ interface Acc {
 
 export const PhoneDetail = (): React.JSX.Element => {
     const {slug} = useParams<{ slug: string }>();
+    const navigate= useNavigate();
+    const [currentSlug, setCurrentSlug] = useState(slug)
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
     const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
     const [selectedVariant, setSelectedVariant] = useState<VariantProduct | null>(null);
-    const {data: product, isError, isLoading} = useProduct(slug || '');
+    const {data: product, isError, isLoading} = useProduct(currentSlug || '');
     const counter = useCounterStore(state => state.counter);
     const increment = useCounterStore(state => state.increment);
     const decrement = useCounterStore(state => state.decrement);
+    const addItem = useCartStore(state => state.addItem)
 
 
     // Agrupamos las variantes por color
@@ -80,6 +85,55 @@ export const PhoneDetail = (): React.JSX.Element => {
 
     // Obtener el stock
     const isOutOfStock = selectedVariant?.stock === 0;
+    // Funciones para agrega a carrito
+    const addToCart = () => {
+        if (selectedVariant){
+            addItem({
+                variantId: selectedVariant.id,
+                productId: product?.id || '',
+                name: product?.name || '',
+                image: product?.images[0] || '',
+                color: selectedVariant.color_name ,
+                storage: selectedVariant.storage,
+                price: selectedVariant.price,
+                quantity: counter
+            })
+            toast.success('Producto añadido al carrito', {
+                position: 'top-right',
+            });
+        }
+
+    }
+
+
+
+    // Funcion para compra ahora
+    const buyNow = () => {
+        if (selectedVariant){
+            addItem({
+                variantId: selectedVariant.id,
+                productId: product?.id || '',
+                name: product?.name || '',
+                image: product?.images[0] || '',
+                color: selectedVariant.color_name ,
+                storage: selectedVariant.storage,
+                price: selectedVariant.price,
+                quantity: counter
+            })
+            navigate("/checkout")
+
+        }
+    }
+
+    // Reseatear en slug actual cuando cambiea la URL
+    useEffect(() => {
+        setCurrentSlug(slug);
+
+        setSelectedVariant(null)
+        setSelectedStorage(null)
+        setSelectedColor(null)
+
+    }, [slug]);
 
     if(isLoading) return <Loading />
 
@@ -184,6 +238,19 @@ export const PhoneDetail = (): React.JSX.Element => {
                                 (<Counter counter={counter} increment={increment} decrement={decrement}/>)
                             )
                     }
+
+
+                    {/**  Acciones */}
+                    <div className="flex flex-col gap-3">
+                        <button onClick={ addToCart } >
+                            Agregar al carro
+                        </button>
+                        <button
+                            onClick={ buyNow }
+                            className='bg-black text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full'>
+                            Comprar ahora
+                        </button>
+                    </div>
 
 
                     {/** Envío **/}
