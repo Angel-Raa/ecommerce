@@ -12,7 +12,7 @@ export const ThankYou = () => {
     const totalAmount = data?.totalAmount || 0;
 
     if (isError) return <div>Error al cargar la orden</div>;
-    if (isLoading) return <Loading/>;
+    if (isLoading || !data) return <Loading/>;
     return (
         <>
             <div className='flex flex-col h-screen'>
