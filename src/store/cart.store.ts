@@ -1,5 +1,5 @@
 import {create, StateCreator} from "zustand";
-import {devtools} from "zustand/middleware";
+import {devtools, persist} from "zustand/middleware";
 import {ICartItem} from "../utils";
 
 export interface CartState {
@@ -108,4 +108,9 @@ const storeApi:StateCreator<CartState> = (set) => ({
 
 })
 
-export const useCartStore = create<CartState>()(devtools(storeApi));
+export const useCartStore = create<CartState>()(devtools(
+    persist(storeApi, {
+        name: "cart-store",
+
+    })
+));

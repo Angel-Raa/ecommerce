@@ -6,10 +6,12 @@ import {NavLinks} from "./NavLinks";
 import {NavItem} from "../../../utils";
 import {Link} from "react-router-dom";
 import {FaBarsStaggered} from "react-icons/fa6";
-import {HiOutlineSearch, HiOutlineShoppingBag} from "react-icons/hi";
+import {HiOutlineSearch, HiOutlineShoppingBag, HiOutlineUser} from "react-icons/hi";
 import {Logo} from "../logo/‎Logo";
 import {useGlobalStore} from "../../../store/global.store";
 import {useCartStore} from "../../../store/cart.store";
+import {useProfile} from "../../../hook";
+import {LuLoader2} from "react-icons/lu";
 
 
 export const navItems: NavItem[] = [
@@ -33,6 +35,9 @@ export const NavBar = (): React.JSX.Element => {
     const openSheet = useGlobalStore(state => state.openSheet);
     const setActiveNavMobile = useGlobalStore(state => state.setActiveNavMobile);
     const totalItemsInCart = useCartStore(state => state.totalItemsInCart);
+    const {data:session, isLoading} = useProfile()
+    const userId= session?.user.id
+
 
     return (
         <>
@@ -56,12 +61,23 @@ export const NavBar = (): React.JSX.Element => {
                     </button>
 
                     {/* Perfil de usuario */}
-                    <Link
-                        to="/account"
-                        className="border-2 border-slate-700 w-9 h-9 rounded-full grid place-items-center text-lg font-bold"
-                    >
-                        R
-                    </Link>
+                    {isLoading ? (
+                        <LuLoader2 className='animate-spin' size={60} />
+                    ) : session ? (
+                        <div className='relative'>
+                            {/* User Nav */}
+                            <Link
+                                to='/account'
+                                className='border-2 border-slate-700 w-9 h-9 rounded-full grid place-items-center text-lg font-bold'
+                            >
+                                R
+                            </Link>
+                        </div>
+                    ) : (
+                        <Link to='/login'>
+                            <HiOutlineUser size={25} />
+                        </Link>
+                    )}
 
                     {/* Carrito con contador */}
                     <button className="relative" onClick={() => openSheet('cart')}>

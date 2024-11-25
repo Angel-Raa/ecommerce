@@ -67,3 +67,15 @@ export interface ICartItem {
   quantity: number;
   image: string;
 }
+
+export interface Register {
+  email: string;
+  password: string;
+  fullName: string;
+  phone?: string;
+}
+
+export interface Login {
+  email: string;
+  password: string;
+}
