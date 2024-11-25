@@ -23,3 +23,8 @@ export * from "./shared/cart/Cart"
 export * from "./shared/search/Search"
 export  * from "./shared/navbar/NavbarMobile"
 export * from "./shared/cart/CartItem"
+
+export * from "./checkout/GridCheckout"
+export * from "./checkout/FormCheckout"
+export * from "./checkout/FormInput"
+export * from "./checkout/ItemsCheckout"
