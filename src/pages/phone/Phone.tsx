@@ -4,14 +4,14 @@ import React, {useState} from "react";
 import {useFilteredProducts} from "../../hook";
 import {Pagination} from "../../components/shared/pagination/Pagination";
 
-export  const Phone = () => {
+export const Phone = () => {
     const [page, setPage] = useState<number>(1);
     const [selectBrands, setSelectBrands] = useState<string[]>([])
     const {products = [], isLoading, total} = useFilteredProducts({
         page, brands: selectBrands,
     });
 
-    const preparePhoneProducts =   prepareProducts(products);
+    const preparePhoneProducts = prepareProducts(products);
 
     console.log(preparePhoneProducts);
 
@@ -19,14 +19,14 @@ export  const Phone = () => {
         <>
 
             <h1 className="text-5xl font-semibold text-center mb-8 md:text-4xl md-12">
-                 Celulares
+                Celulares
             </h1>
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 {/**TODO: Filtros*/}
-                 <FilterBar setSelectBrands={setSelectBrands} selectedBrands={selectBrands}/>
+                <FilterBar setSelectBrands={setSelectBrands} selectedBrands={selectBrands}/>
                 {
                     isLoading ? (
-                        (<Loading />)
+                        (<Loading/>)
                     ) : (
                         <div className="col-span-2 lg:col-span-2 xl:col-span-4 flex flex-col gap-2">
 
@@ -47,7 +47,7 @@ export  const Phone = () => {
                                     ))
                                 }
                             </div>
-                            <Pagination totalItems={total} page={page} setPage={setPage} />
+                            <Pagination totalItems={total} page={page} setPage={setPage}/>
                         </div>
 
 

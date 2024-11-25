@@ -1,11 +1,13 @@
-export const About = ():React.JSX.Element => {
+export const About = (): React.JSX.Element => {
     return (
         <>
             <section className="space-y-5">
                 <h1 className="text-center text-4xl font-semibold tracking-tight mb-5">
                     Sobre Nosotros
                 </h1>
-                <img src="https://media.istockphoto.com/id/511061090/es/foto/negocios-edificio-de-oficinas-en-londres-inglaterra.jpg?s=612x612&w=0&k=20&c=oGQEBCRRR72a00Y-ykb41ddlp_c4EaTwIs2CJ6odWb4=" alt="Imagen representativa de nuestra tienda" className="h-[500px] w-full object-cover"/>
+                <img
+                    src="https://media.istockphoto.com/id/511061090/es/foto/negocios-edificio-de-oficinas-en-londres-inglaterra.jpg?s=612x612&w=0&k=20&c=oGQEBCRRR72a00Y-ykb41ddlp_c4EaTwIs2CJ6odWb4="
+                    alt="Imagen representativa de nuestra tienda" className="h-[500px] w-full object-cover"/>
                 <div className="flex flex-col gap-5 tracking-tighter leading-7 text-sm font-medium text-slate-800">
                     <p>
                         Bienvenido a <strong>ZonaMóvil</strong>, tu tienda en línea especializada en la venta de

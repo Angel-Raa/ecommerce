@@ -3,9 +3,9 @@ import {getSession} from "../../actions";
 
 export const useProfile = () => {
     const {isLoading, data} = useQuery({
-        queryKey:['user'],
+        queryKey: ['user'],
         queryFn: getSession,
-        retry:false,
+        retry: false,
         refetchOnWindowFocus: true,
     })
 

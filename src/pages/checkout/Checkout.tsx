@@ -45,7 +45,7 @@ export const Checkout = () => {
                         <>
                             <div className='w-full md:w-[50%] p-10'>
                                 {/***TODO FURMALARIOS **/}
-                                <FormCheckout />
+                                <FormCheckout/>
                             </div>
 
                             <div
@@ -55,7 +55,7 @@ export const Checkout = () => {
                                 }}
                             >
                                 {/*TODO: Elementos del carrito */}
-                                <GridCheckout />
+                                <GridCheckout/>
 
                             </div>
                         </>

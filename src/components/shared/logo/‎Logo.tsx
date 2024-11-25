@@ -1,10 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const Logo = ():React.JSX.Element => {
+export const Logo = (): React.JSX.Element => {
     return (
         <>
-            <Link to={`/` } className={`text-2xl font-bold tracking-tight transition-all`}>
+            <Link to={`/`} className={`text-2xl font-bold tracking-tight transition-all`}>
                 <p className={`hidden lg:block`}>
                     Zona
                     <span className={`text-cyan-600`}>Móvil</span>

@@ -5,8 +5,8 @@ import {AddressFormValues, addressSchema} from "../../utils";
 import {zodResolver} from "@hookform/resolvers/zod";
 
 export const FormCheckout = () => {
-    const {register, formState:{errors}, handleSubmit} = useForm<AddressFormValues>({
-        resolver:zodResolver(addressSchema),
+    const {register, formState: {errors}, handleSubmit} = useForm<AddressFormValues>({
+        resolver: zodResolver(addressSchema),
     })
     const onSubmit = handleSubmit((data, event) => {
 
@@ -17,11 +17,14 @@ export const FormCheckout = () => {
                 <div className={"flex flex-col gap-3"}>
                     <h3 className={"text-lg font-semibold tracking-normal"}>Entrega</h3>
 
-                    <FormInput register={register} errors={errors} name={"addressLine1"} placeholder={"Dirección principal"} />
-                    <FormInput register={register} errors={errors} name={"addressLine2"} placeholder={"Dirección adicional (Opcional)"} />
-                    <FormInput register={register} errors={errors} name={"city"} placeholder={"Ciudad"} />
-                    <FormInput register={register} errors={errors} name={"state"} placeholder={"Provincia"} />
-                    <FormInput register={register} errors={errors} name={"postalCode"} placeholder={"Código Postal (Opcional)"} />
+                    <FormInput register={register} errors={errors} name={"addressLine1"}
+                               placeholder={"Dirección principal"}/>
+                    <FormInput register={register} errors={errors} name={"addressLine2"}
+                               placeholder={"Dirección adicional (Opcional)"}/>
+                    <FormInput register={register} errors={errors} name={"city"} placeholder={"Ciudad"}/>
+                    <FormInput register={register} errors={errors} name={"state"} placeholder={"Provincia"}/>
+                    <FormInput register={register} errors={errors} name={"postalCode"}
+                               placeholder={"Código Postal (Opcional)"}/>
 
                     <select
                         {...register('country')}

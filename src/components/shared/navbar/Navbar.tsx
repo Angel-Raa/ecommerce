@@ -35,8 +35,8 @@ export const NavBar = (): React.JSX.Element => {
     const openSheet = useGlobalStore(state => state.openSheet);
     const setActiveNavMobile = useGlobalStore(state => state.setActiveNavMobile);
     const totalItemsInCart = useCartStore(state => state.totalItemsInCart);
-    const {data:session, isLoading} = useProfile()
-    const userId= session?.user.id
+    const {data: session, isLoading} = useProfile()
+    const userId = session?.user.id
 
 
     return (
@@ -62,7 +62,7 @@ export const NavBar = (): React.JSX.Element => {
 
                     {/* Perfil de usuario */}
                     {isLoading ? (
-                        <LuLoader2 className='animate-spin' size={60} />
+                        <LuLoader2 className='animate-spin' size={60}/>
                     ) : session ? (
                         <div className='relative'>
                             {/* User Nav */}
@@ -75,7 +75,7 @@ export const NavBar = (): React.JSX.Element => {
                         </div>
                     ) : (
                         <Link to='/login'>
-                            <HiOutlineUser size={25} />
+                            <HiOutlineUser size={25}/>
                         </Link>
                     )}
 

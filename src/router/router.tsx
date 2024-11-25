@@ -1,49 +1,49 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
-import {Phone, About, Home, PhoneDetail, Login, Register, Order, Checkout} from "../pages";
+import {About, Checkout, Home, Login, Order, Phone, PhoneDetail, Register} from "../pages";
 import {ClientLayout} from "../layouts/ClientLayout";
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <RootLayout />,
-        children:[
+        element: <RootLayout/>,
+        children: [
             {
-                index:true,
-                element:<Home />
+                index: true,
+                element: <Home/>
             },
             {
-                path:"celulares",
-                element:<Phone />
+                path: "celulares",
+                element: <Phone/>
             },
             {
-              path:"/celulares/:slug",
-               element: <PhoneDetail />
+                path: "/celulares/:slug",
+                element: <PhoneDetail/>
             },
             {
-                path:"about",
-                element:<About />
+                path: "about",
+                element: <About/>
             },
             {
-                path:'login',
+                path: 'login',
                 element: <Login/>
             },
             {
-                path:'register',
-                element:<Register />
+                path: 'register',
+                element: <Register/>
             },
             {
-                path:"account",
-                element:<ClientLayout />,
+                path: "account",
+                element: <ClientLayout/>,
                 children: [
                     {
-                        path:'',
-                        element:<Navigate to={'/account/pedidos' } />
+                        path: '',
+                        element: <Navigate to={'/account/pedidos'}/>
                     },
                     {
-                        path:"pedidos",
-                        element:<Order />
+                        path: "pedidos",
+                        element: <Order/>
                     }
                 ]
             },
@@ -53,8 +53,8 @@ export const router = createBrowserRouter([
 
     },
     {
-        path:'/checkout',
-        element:<Checkout />
+        path: '/checkout',
+        element: <Checkout/>
 
     }
 ])

@@ -8,7 +8,7 @@ import {UserRegisterFormValues, userRegisterSchema} from "../../utils";
 
 
 export const Register = () => {
-    const {data:session, isLoading} = useProfile()
+    const {data: session, isLoading} = useProfile()
     const {mutate, isPending} = useRegister();
     const {register, handleSubmit, formState: {errors}} = useForm<UserRegisterFormValues>({
         defaultValues: {
@@ -22,15 +22,15 @@ export const Register = () => {
     });
 
     const onRegister = handleSubmit(data => {
-         const {email, phone, fullName, password} = data;
-         mutate({email, password, fullName, phone})
+        const {email, phone, fullName, password} = data;
+        mutate({email, password, fullName, phone})
 
 
     })
 
 
-    if(isLoading) return <Loading/>
-    if(session) return <Navigate to={'/'}/>
+    if (isLoading) return <Loading/>
+    if (session) return <Navigate to={'/'}/>
 
     return (
         <>
@@ -44,11 +44,11 @@ export const Register = () => {
 
                 {
                     isPending ? (
-                        <div className="w-full h-full flex justify-center mt-20">
-                            <LuLoader2 size={70} className={"animate-spin"}/>
+                            <div className="w-full h-full flex justify-center mt-20">
+                                <LuLoader2 size={70} className={"animate-spin"}/>
 
-                        </div>
-                    ):
+                            </div>
+                        ) :
                         (
                             <>
                                 <form onSubmit={onRegister}
@@ -104,12 +104,6 @@ export const Register = () => {
 
                         )
                 }
-
-
-
-
-
-
 
 
             </div>

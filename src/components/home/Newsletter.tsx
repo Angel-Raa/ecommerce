@@ -1,6 +1,6 @@
 import React from "react";
 
-export  const Newsletter = ():React.JSX.Element => {
+export const Newsletter = (): React.JSX.Element => {
     return (
         <>
             <div className='relative bg-gray-500 text-white py-20'>

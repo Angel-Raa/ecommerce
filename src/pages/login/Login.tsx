@@ -7,14 +7,14 @@ import {Loading} from "../../components";
 export const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const {data:session, isLoading} = useProfile()
+    const {data: session, isLoading} = useProfile()
     const {mutate, isPending} = useLogin();
-    const onLogin = (e:React.FormEvent) => {
+    const onLogin = (e: React.FormEvent) => {
         e.preventDefault();
         mutate({email, password})
     }
-    if(isLoading) return <Loading/>
-    if(session) return <Navigate to={'/'}/>
+    if (isLoading) return <Loading/>
+    if (session) return <Navigate to={'/'}/>
 
     return (
         <>
@@ -32,7 +32,7 @@ export const Login = () => {
                             <LuLoader2 size={70} className={"animate-spin"}/>
 
                         </div>
-                    ):
+                    ) :
                     (
                         <>
                             <form
@@ -52,7 +52,7 @@ export const Login = () => {
                                     type={"password"} placeholder={"Ingresa tu contraseña "}
                                     className={"border border-slate-200 text-black px-5 py-4 placeholder:text-black text-sm rounded-full w-full"}/>
                                 <button
-                                        className={"bg-black text-white uppercase font-semibold tracking-wide text-xs py-4 rounded-full mt-5 w-full"}>
+                                    className={"bg-black text-white uppercase font-semibold tracking-wide text-xs py-4 rounded-full mt-5 w-full"}>
                                     Iniciar sesión
                                 </button>
                             </form>

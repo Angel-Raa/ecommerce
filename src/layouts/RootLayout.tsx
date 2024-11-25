@@ -30,7 +30,7 @@ export const RootLayout = (): React.JSX.Element => {
                     isSheetOpen && (<Sheet/>)
                 }
                 {
-                    active && (<NavbarMobile />)
+                    active && (<NavbarMobile/>)
                 }
                 <Footer/>
 

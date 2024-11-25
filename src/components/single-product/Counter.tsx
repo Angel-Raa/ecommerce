@@ -6,7 +6,8 @@ interface Props {
     increment: () => void;
     decrement: () => void;
 }
-export const Counter = ({counter, increment, decrement}:Props) => {
+
+export const Counter = ({counter, increment, decrement}: Props) => {
     return (
         <>
             <div className="space-y-3">

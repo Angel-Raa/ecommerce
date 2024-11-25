@@ -8,7 +8,8 @@ export const NavbarMobile = () => {
 
     return (
         <>
-            <div className={"fixed bg-white text-black h-screen w-full shadow-lg animate-slide-in-left z-50 flex justify-center py-32"}>
+            <div
+                className={"fixed bg-white text-black h-screen w-full shadow-lg animate-slide-in-left z-50 flex justify-center py-32"}>
                 <button
                     className={"absolute top-5 right-5"}
                     onClick={() => setActiveNavMobile(false)}>
@@ -17,11 +18,11 @@ export const NavbarMobile = () => {
                 <div className={"flex flex-col gap-20"}>
                     <Link to={'/'} onClick={
                         close => setActiveNavMobile(false)}
-                     className={"text-4xl font-bold transition-all  tracking-tight"}>
-                     <p>
-                         Celulares
-                         <span className={"text-cyan-600"}>Baratos</span>
-                     </p>
+                          className={"text-4xl font-bold transition-all  tracking-tight"}>
+                        <p>
+                            Celulares
+                            <span className={"text-cyan-600"}>Baratos</span>
+                        </p>
 
                     </Link>
                     <div className={"flex flex-col gap-5 items-center"}>
@@ -29,7 +30,8 @@ export const NavbarMobile = () => {
                             navItems.map((item) => (
                                 <NavLink
                                     onClick={() => setActiveNavMobile(false)}
-                                    key={item.title}  to={item.link} className={(isActive) => `${isActive ? 'text-cyan-600 underline'  :''  } transition-all duration-300 font-semibold text-xl hover:text-cyan-600 hover:underline` }>
+                                    key={item.title} to={item.link}
+                                    className={(isActive) => `${isActive ? 'text-cyan-600 underline' : ''} transition-all duration-300 font-semibold text-xl hover:text-cyan-600 hover:underline`}>
                                     {item.title}
                                 </NavLink>
                             ))

@@ -1,20 +1,21 @@
-import {ICartItem, formatPrice} from "../../../utils";
+import {formatPrice, ICartItem} from "../../../utils";
 import {LuMinus, LuPlus} from "react-icons/lu";
 import React from "react";
 import {useCartStore} from "../../../store/cart.store";
 
 
 interface Props {
-    item:ICartItem
+    item: ICartItem
 }
-export const CartItem =({item}:Props ) => {
+
+export const CartItem = ({item}: Props) => {
     const removeItem = useCartStore(state => state.removeItem);
     const updateQuantity = useCartStore(state => state.updateQuantity);
     const increment = () => {
-       updateQuantity(item.variantId, item.quantity + 1);
+        updateQuantity(item.variantId, item.quantity + 1);
     }
     const decrement = () => {
-        if(item.quantity > 1) {
+        if (item.quantity > 1) {
             updateQuantity(item.variantId, item.quantity - 1);
         }
     }

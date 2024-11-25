@@ -1,18 +1,11 @@
 import {useCartStore} from "../../store/cart.store";
-import { ItemsCheckout } from "./ItemsCheckout";
+import {ItemsCheckout} from "./ItemsCheckout";
 import {formatPrice} from "../../utils";
-
 
 
 export const GridCheckout = () => {
     const cartItems = useCartStore(state => state.items);
     const totalAmount = useCartStore(state => state.totalAmount);
-
-
-
-
-
-
 
 
     return (

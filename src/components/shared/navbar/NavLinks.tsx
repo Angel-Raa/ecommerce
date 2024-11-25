@@ -7,7 +7,7 @@ interface Props {
     title: string,
 }
 
-export const NavLinks = ({link,  title}: Props): React.JSX.Element => {
+export const NavLinks = ({link, title}: Props): React.JSX.Element => {
     return (
         <>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export const Banner = () :React.JSX.Element=> {
+export const Banner = (): React.JSX.Element => {
     return (
         <>
             <div className='relative bg-gray-900 text-white'>
@@ -17,7 +17,7 @@ export const Banner = () :React.JSX.Element=> {
                 <div
                     className='relative z-10 flex flex-col items-center justify-center py-20 px-4 text-center lg:py-40 lg:px-8'>
                     <h1 className='text-4xl font-bold mb-4 lg:text-6xl'>
-                         Celulares
+                        Celulares
                     </h1>
 
                     <p className='text-lg mb-8 lg:text-2xl'>

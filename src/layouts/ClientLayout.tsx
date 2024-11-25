@@ -7,20 +7,20 @@ import {supabase} from "../supabase/client";
 import {Loading} from "../components";
 
 export const ClientLayout = () => {
-    const {data:session, isLoading:isLoadingSession} = useProfile()
+    const {data: session, isLoading: isLoadingSession} = useProfile()
     const navigate = useNavigate();
     useEffect(() => {
-        supabase.auth.onAuthStateChange(async (event, session) =>{
-            if(event === 'SIGNED_OUT' || !session){
+        supabase.auth.onAuthStateChange(async (event, session) => {
+            if (event === 'SIGNED_OUT' || !session) {
                 navigate('/login');
             }
-        } )
+        })
     }, [navigate]);
 
-    if(isLoadingSession){
-        return <Loading />
+    if (isLoadingSession) {
+        return <Loading/>
     }
-    const handleLogout =async () => {
+    const handleLogout = async () => {
         localStorage.clear();
         await signOut();
 
@@ -30,7 +30,8 @@ export const ClientLayout = () => {
             <div className={"flex flex-col gap-5 "}>
                 {/** TODO: MENU **/}
                 <nav className={"flex justify-center gap-10 text-sm font-medium"}>
-                    <NavLink to={'/account/pedidos'} className={(isActive) => `${isActive ? 'underline' : 'hover:underline'}          `} >
+                    <NavLink to={'/account/pedidos'}
+                             className={(isActive) => `${isActive ? 'underline' : 'hover:underline'}          `}>
                         Pedidos
                     </NavLink>
                     {/** TODO: LINK DASHBOARDD **/}
@@ -40,7 +41,7 @@ export const ClientLayout = () => {
                 </nav>
 
                 <main className={"container mt-12 flex-1"}>
-                    <Outlet />
+                    <Outlet/>
                 </main>
             </div>
         </>

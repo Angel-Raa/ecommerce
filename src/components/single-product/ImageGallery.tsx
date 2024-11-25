@@ -3,10 +3,11 @@ import {useState} from "react";
 interface Props {
     images: string[]
 }
-export  const ImageGallery = ({images}:Props):JSX.Element => {
+
+export const ImageGallery = ({images}: Props): JSX.Element => {
     const [activeImage, setActiveImage] = useState(images[0]);
-    const handleImageClick = (image:string) => {
-         setActiveImage(image);
+    const handleImageClick = (image: string) => {
+        setActiveImage(image);
     }
     return (
         <>

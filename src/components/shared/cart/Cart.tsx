@@ -9,7 +9,7 @@ import {useCartStore} from "../../../store/cart.store";
 
 export const Cart = (): React.JSX.Element => {
     const closeSheet = useGlobalStore(state => state.closeSheet);
-    const  totalItemsInCart = useCartStore(state => state.totalItemsInCart)
+    const totalItemsInCart = useCartStore(state => state.totalItemsInCart)
     const items = useCartStore(state => state.items);
     const cleanCart = useCartStore(state => state.clearCart);
 

@@ -3,7 +3,8 @@ interface Props {
     title: string,
     description: string,
 }
-export  const FeatureItem = ({description, title, icon}:Props) => {
+
+export const FeatureItem = ({description, title, icon}: Props) => {
     return (
         <>
             <div className="group p-6 rounded-xl transition-all duration-300 hover:bg-gray-50 hover:shadow-lg w-full">

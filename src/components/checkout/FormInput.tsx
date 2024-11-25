@@ -34,8 +34,8 @@ interface Props {
 }
 
 export const FormInput = ({
-                                 register, clasName, placeholder, name, errors, typeInput,
-                             }: Props) => {
+                              register, clasName, placeholder, name, errors, typeInput,
+                          }: Props) => {
     return (
         <>
             <div

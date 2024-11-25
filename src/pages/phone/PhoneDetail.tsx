@@ -19,7 +19,7 @@ interface Acc {
 
 export const PhoneDetail = (): React.JSX.Element => {
     const {slug} = useParams<{ slug: string }>();
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const [currentSlug, setCurrentSlug] = useState(slug)
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
     const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
@@ -87,13 +87,13 @@ export const PhoneDetail = (): React.JSX.Element => {
     const isOutOfStock = selectedVariant?.stock === 0;
     // Funciones para agrega a carrito
     const addToCart = () => {
-        if (selectedVariant){
+        if (selectedVariant) {
             addItem({
                 variantId: selectedVariant.id,
                 productId: product?.id || '',
                 name: product?.name || '',
                 image: product?.images[0] || '',
-                color: selectedVariant.color_name ,
+                color: selectedVariant.color_name,
                 storage: selectedVariant.storage,
                 price: selectedVariant.price,
                 quantity: counter
@@ -106,16 +106,15 @@ export const PhoneDetail = (): React.JSX.Element => {
     }
 
 
-
     // Funcion para compra ahora
     const buyNow = () => {
-        if (selectedVariant){
+        if (selectedVariant) {
             addItem({
                 variantId: selectedVariant.id,
                 productId: product?.id || '',
                 name: product?.name || '',
                 image: product?.images[0] || '',
-                color: selectedVariant.color_name ,
+                color: selectedVariant.color_name,
                 storage: selectedVariant.storage,
                 price: selectedVariant.price,
                 quantity: counter
@@ -135,7 +134,7 @@ export const PhoneDetail = (): React.JSX.Element => {
 
     }, [slug]);
 
-    if(isLoading) return <Loading />
+    if (isLoading) return <Loading/>
 
     if (!product || isError) {
         return (
@@ -144,9 +143,6 @@ export const PhoneDetail = (): React.JSX.Element => {
             </>
         )
     }
-
-
-
 
 
     return (
@@ -165,7 +161,7 @@ export const PhoneDetail = (): React.JSX.Element => {
                         <div className="relative">
                             {
                                 isOutOfStock && (
-                                    <Tag contentTag={'Agotado'} />
+                                    <Tag contentTag={'Agotado'}/>
                                 )
                             }
                         </div>
@@ -177,7 +173,8 @@ export const PhoneDetail = (): React.JSX.Element => {
 
                         {
                             product.features.map((feature) => (
-                                <li key={feature} className="text-sm flex items-center gap-2 tracking-tight font-medium">
+                                <li key={feature}
+                                    className="text-sm flex items-center gap-2 tracking-tight font-medium">
                                     <span className="bg-black w-[5px] h-[5px] rounded-full"/>
                                     {feature}
                                 </li>
@@ -193,8 +190,10 @@ export const PhoneDetail = (): React.JSX.Element => {
 
                             {
                                 availableColors.map((color) => (
-                                    <button key={color} className={`w-8 h-8 rounded-full flex justify-center items-center ${
-                                        selectedColor === color ? 'border border-slate-800' : ''}`} onClick={() => setSelectedColor(color)}>
+                                    <button key={color}
+                                            className={`w-8 h-8 rounded-full flex justify-center items-center ${
+                                                selectedColor === color ? 'border border-slate-800' : ''}`}
+                                            onClick={() => setSelectedColor(color)}>
                                 <span className="w-[26px] h-[26px] rounded-full" style={{
                                     backgroundColor: color
                                 }}/>
@@ -217,7 +216,9 @@ export const PhoneDetail = (): React.JSX.Element => {
                         {
                             selectedColor && (
                                 <div className="flex gap-3">
-                                    <select className="border border-gray-700 rounded-lg px-3 py-2" value={selectedStorage || '' } onChange={(e) => setSelectedStorage(e.target.value)}>
+                                    <select className="border border-gray-700 rounded-lg px-3 py-2"
+                                            value={selectedStorage || ''}
+                                            onChange={(e) => setSelectedStorage(e.target.value)}>
                                         {
                                             colors[selectedColor].storages.map(t => (
                                                 <option key={t} value={t}>{t}</option>
@@ -242,11 +243,11 @@ export const PhoneDetail = (): React.JSX.Element => {
 
                     {/**  Acciones */}
                     <div className="flex flex-col gap-3">
-                        <button onClick={ addToCart } >
+                        <button onClick={addToCart}>
                             Agregar al carro
                         </button>
                         <button
-                            onClick={ buyNow }
+                            onClick={buyNow}
                             className='bg-black text-white uppercase font-semibold tracking-widest text-xs py-4 rounded-full'>
                             Comprar ahora
                         </button>

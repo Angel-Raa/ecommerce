@@ -1,12 +1,13 @@
 import React from "react";
 import {CartProductDetails} from "./CartProductDetails";
 import {PreparedProducts} from "../../utils/definition";
+
 interface Props {
     title: string,
     product: PreparedProducts[]
 }
 
-export  const ProductGrid = ({title, product = []} :Props):React.JSX.Element => {
+export const ProductGrid = ({title, product = []}: Props): React.JSX.Element => {
 
     return (
         <>

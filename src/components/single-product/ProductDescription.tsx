@@ -5,15 +5,16 @@ import {Json} from "../../supabase/supabase";
 
 interface Props {
 
-    content:JSONContent | Json
+    content: JSONContent | Json
 }
-export const ProductDescription = ({content}:Props):JSX.Element => {
+
+export const ProductDescription = ({content}: Props): JSX.Element => {
     const editor = useEditor({
-        extensions:[StarterKit],
+        extensions: [StarterKit],
         content: content as JSONContent,
-        editable:false,
+        editable: false,
         editorProps: {
-            attributes:{
+            attributes: {
                 class: 'prose prose-sm sm:prose-base max-w-none'
             }
         }

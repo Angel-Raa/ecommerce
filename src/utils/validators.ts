@@ -3,11 +3,11 @@ import {z} from "zod";
 export const userRegisterSchema = z.object({
     email: z.string().email('El correo electrónico no es válido'),
     password: z.string().min(6, 'La contraseña debe tener al menos 6 caracteres'),
-    fullName:z.string().min(1, 'El nombre completo es requerido'),
-    phone:z.string().optional(),
+    fullName: z.string().min(1, 'El nombre completo es requerido'),
+    phone: z.string().optional(),
 })
 
-export const addressSchema =z.object({
+export const addressSchema = z.object({
     addressLine1: z
         .string()
         .min(1, 'La dirección es requerida')
@@ -30,8 +30,6 @@ export const addressSchema =z.object({
         .optional(),
     country: z.string().min(1, 'El país es requerido'),
 })
-
-
 
 
 export type AddressFormValues = z.infer<typeof addressSchema>;

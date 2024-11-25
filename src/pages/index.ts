@@ -1,6 +1,6 @@
 export * from "./phone/Phone"
-export *from "./about/About"
-export  * from "./home/Home"
+export * from "./about/About"
+export * from "./home/Home"
 export * from "./phone/PhoneDetail"
 export * from "./login/Login"
 export * from "./register/Register"

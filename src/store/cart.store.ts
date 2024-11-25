@@ -3,25 +3,26 @@ import {devtools, persist} from "zustand/middleware";
 import {ICartItem} from "../utils";
 
 export interface CartState {
-    items:ICartItem[];
+    items: ICartItem[];
     totalItemsInCart: number;
     totalAmount: number;
 
-    addItem:(item:ICartItem) => void;
-    removeItem:(variantId:string) => void;
-    updateQuantity:(variantId:string, quantity:number) => void;
-    clearCart:() => void;
+    addItem: (item: ICartItem) => void;
+    removeItem: (variantId: string) => void;
+    updateQuantity: (variantId: string, quantity: number) => void;
+    clearCart: () => void;
 }
-const storeApi:StateCreator<CartState> = (set) => ({
-    items:[],
-    totalItemsInCart:0,
-    totalAmount:0,
 
-    clearCart:() => {
-        set({items:[], totalItemsInCart:0, totalAmount:0})
+const storeApi: StateCreator<CartState> = (set) => ({
+    items: [],
+    totalItemsInCart: 0,
+    totalAmount: 0,
+
+    clearCart: () => {
+        set({items: [], totalItemsInCart: 0, totalAmount: 0})
     },
 
-    addItem:(item:ICartItem) => {
+    addItem: (item: ICartItem) => {
         set(state => {
             const existingItemIndex = state.items.findIndex(
                 i => i.variantId === item.variantId
@@ -59,7 +60,7 @@ const storeApi:StateCreator<CartState> = (set) => ({
         });
 
     },
-    removeItem:(variantId:string) => {
+    removeItem: (variantId: string) => {
         set(state => {
             const updatedItems = state.items.filter(i => i.variantId !== variantId);
             const newTotalItems = updatedItems.reduce(
@@ -81,9 +82,9 @@ const storeApi:StateCreator<CartState> = (set) => ({
 
     },
 
-    updateQuantity:(variantId:string, quantity:number) => {
+    updateQuantity: (variantId: string, quantity: number) => {
         set(state => {
-            const updatedItems = state.items.map(i =>  i.variantId === variantId ? {...i, quantity} : i);
+            const updatedItems = state.items.map(i => i.variantId === variantId ? {...i, quantity} : i);
 
             const newTotalItems = updatedItems.reduce(
                 (acc, i) => acc + i.quantity,
@@ -102,8 +103,6 @@ const storeApi:StateCreator<CartState> = (set) => ({
             };
         })
     }
-
-
 
 
 })

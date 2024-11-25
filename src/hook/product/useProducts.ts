@@ -7,6 +7,6 @@ export const useProducts = () => {
         queryFn: () => getProducts(),
         staleTime: 1000 * 60 * 5
     });
-    return {products:data, isLoading, isError};
+    return {products: data, isLoading, isError};
 }
 

@@ -1,7 +1,7 @@
 export const allCelulares = [
     {
         brand: 'Samsung',
-        colors: [{ color: '#000000', color_name: 'Negro' }],
+        colors: [{color: '#000000', color_name: 'Negro'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -36,7 +36,7 @@ export const allCelulares = [
     },
     {
         brand: 'Apple',
-        colors: [{ color: '#FFFFFF', color_name: 'Blanco' }],
+        colors: [{color: '#FFFFFF', color_name: 'Blanco'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -71,7 +71,7 @@ export const allCelulares = [
     },
     {
         brand: 'Xiaomi',
-        colors: [{ color: '#FF0000', color_name: 'Rojo' }],
+        colors: [{color: '#FF0000', color_name: 'Rojo'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -106,7 +106,7 @@ export const allCelulares = [
     },
     {
         brand: 'Huawei',
-        colors: [{ color: '#0000FF', color_name: 'Azul' }],
+        colors: [{color: '#0000FF', color_name: 'Azul'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -141,7 +141,7 @@ export const allCelulares = [
     },
     {
         brand: 'Realme',
-        colors: [{ color: '#FFA500', color_name: 'Naranja' }],
+        colors: [{color: '#FFA500', color_name: 'Naranja'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -176,7 +176,7 @@ export const allCelulares = [
     },
     {
         brand: 'Honor',
-        colors: [{ color: '#0000FF', color_name: 'Azul' }],
+        colors: [{color: '#0000FF', color_name: 'Azul'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -211,7 +211,7 @@ export const allCelulares = [
     },
     {
         brand: 'Realme',
-        colors: [{ color: '#FFA500', color_name: 'Naranja' }],
+        colors: [{color: '#FFA500', color_name: 'Naranja'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -246,7 +246,7 @@ export const allCelulares = [
     },
     {
         brand: 'Huawei',
-        colors: [{ color: '#800080', color_name: 'Púrpura' }],
+        colors: [{color: '#800080', color_name: 'Púrpura'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -281,7 +281,7 @@ export const allCelulares = [
     },
     {
         brand: 'Apple',
-        colors: [{ color: '#FFFFFF', color_name: 'Blanco' }],
+        colors: [{color: '#FFFFFF', color_name: 'Blanco'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -316,7 +316,7 @@ export const allCelulares = [
     },
     {
         brand: 'Samsung',
-        colors: [{ color: '#FF0000', color_name: 'Rojo' }],
+        colors: [{color: '#FF0000', color_name: 'Rojo'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -351,7 +351,7 @@ export const allCelulares = [
     },
     {
         brand: 'Xiaomi',
-        colors: [{ color: '#00FF00', color_name: 'Verde' }],
+        colors: [{color: '#00FF00', color_name: 'Verde'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -389,7 +389,7 @@ export const allCelulares = [
 export const recentCelulares = [
     {
         brand: 'Samsung',
-        colors: [{ color: '#000000', color_name: 'Negro' }],
+        colors: [{color: '#000000', color_name: 'Negro'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -424,7 +424,7 @@ export const recentCelulares = [
     },
     {
         brand: 'Apple',
-        colors: [{ color: '#FFFFFF', color_name: 'Blanco' }],
+        colors: [{color: '#FFFFFF', color_name: 'Blanco'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -459,7 +459,7 @@ export const recentCelulares = [
     },
     {
         brand: 'Xiaomi',
-        colors: [{ color: '#FF0000', color_name: 'Rojo' }],
+        colors: [{color: '#FF0000', color_name: 'Rojo'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -494,7 +494,7 @@ export const recentCelulares = [
     },
     {
         brand: 'Huawei',
-        colors: [{ color: '#0000FF', color_name: 'Azul' }],
+        colors: [{color: '#0000FF', color_name: 'Azul'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -532,7 +532,7 @@ export const recentCelulares = [
 export const popularCelulares = [
     {
         brand: 'Huawei',
-        colors: [{ color: '#800080', color_name: 'Púrpura' }],
+        colors: [{color: '#800080', color_name: 'Púrpura'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -567,7 +567,7 @@ export const popularCelulares = [
     },
     {
         brand: 'Apple',
-        colors: [{ color: '#FFFFFF', color_name: 'Blanco' }],
+        colors: [{color: '#FFFFFF', color_name: 'Blanco'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -602,7 +602,7 @@ export const popularCelulares = [
     },
     {
         brand: 'Samsung',
-        colors: [{ color: '#FF0000', color_name: 'Rojo' }],
+        colors: [{color: '#FF0000', color_name: 'Rojo'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',
@@ -637,7 +637,7 @@ export const popularCelulares = [
     },
     {
         brand: 'Xiaomi',
-        colors: [{ color: '#00FF00', color_name: 'Verde' }],
+        colors: [{color: '#00FF00', color_name: 'Verde'}],
         created_at: new Date().toISOString(),
         description: {
             type: 'doc',

@@ -7,10 +7,10 @@ export const useLogin = () => {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
-    const { mutate, isPending } = useMutation({
+    const {mutate, isPending} = useMutation({
         mutationFn: signIn,
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['user'] });
+            queryClient.invalidateQueries({queryKey: ['user']});
             navigate('/');
         },
         onError: err => {

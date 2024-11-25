@@ -1,10 +1,10 @@
 import {formatPrice, ICartItem} from "../../utils";
 
 interface Props {
-    item:ICartItem
+    item: ICartItem
 }
 
-export const ItemsCheckout =  ({item}:Props) => {
+export const ItemsCheckout = ({item}: Props) => {
     return (
         <>
             <li
