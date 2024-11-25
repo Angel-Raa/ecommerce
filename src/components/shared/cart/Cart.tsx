@@ -11,7 +11,7 @@ export const Cart = (): React.JSX.Element => {
     const closeSheet = useGlobalStore(state => state.closeSheet);
     const totalItemsInCart = useCartStore(state => state.totalItemsInCart)
     const items = useCartStore(state => state.items);
-    const cleanCart = useCartStore(state => state.clearCart);
+    const cleanCart = useCartStore(state => state.cleanCart);
 
 
     return (

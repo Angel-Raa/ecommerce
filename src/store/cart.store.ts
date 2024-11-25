@@ -10,7 +10,7 @@ export interface CartState {
     addItem: (item: ICartItem) => void;
     removeItem: (variantId: string) => void;
     updateQuantity: (variantId: string, quantity: number) => void;
-    clearCart: () => void;
+    cleanCart: () => void;
 }
 
 const storeApi: StateCreator<CartState> = (set) => ({
@@ -18,7 +18,7 @@ const storeApi: StateCreator<CartState> = (set) => ({
     totalItemsInCart: 0,
     totalAmount: 0,
 
-    clearCart: () => {
+    cleanCart: () => {
         set({items: [], totalItemsInCart: 0, totalAmount: 0})
     },
 

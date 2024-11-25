@@ -1,16 +1,47 @@
 import {FormInput} from "./FormInput";
 import {GridCheckout} from "./GridCheckout";
 import {useForm} from "react-hook-form";
-import {AddressFormValues, addressSchema} from "../../utils";
+import {AddressFormValues, addressSchema, Order} from "../../utils";
 import {zodResolver} from "@hookform/resolvers/zod";
+import {useCreateOrder} from "../../hook";
+import {useCartStore} from "../../store/cart.store";
+import {ImSpinner2} from "react-icons/im";
 
 export const FormCheckout = () => {
     const {register, formState: {errors}, handleSubmit} = useForm<AddressFormValues>({
         resolver: zodResolver(addressSchema),
     })
+    const {mutate, isPending} = useCreateOrder()
+    const cleanCart = useCartStore(state => state.cleanCart);
+    const cartItems = useCartStore(state => state.items);
+    const totalAmount = useCartStore(state => state.totalAmount);
     const onSubmit = handleSubmit((data, event) => {
 
+        const orderInput: Order = {
+            address: data,
+            cartItems: cartItems.map(item => ({
+                variantId: item.variantId,
+                quantity: item.quantity,
+                price: item.price
+            })),
+            totalAmount
+
+        }
+        mutate(orderInput, {
+            onSuccess: () => {
+                cleanCart();
+            }
+        })
     })
+
+    if (isPending) {
+        return <div className={"flex flex-col gap-3 items-center justify-center h-screen"}>
+            <ImSpinner2 className={'animate-spin h-10 w-10'}/>
+            <p className='text-sm font-medium'>
+                Estamos procesando tu pedido
+            </p>
+        </div>
+    }
     return (
         <>
             <form className={"flex flex-col gap-6"} onSubmit={onSubmit}>
