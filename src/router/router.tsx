@@ -1,6 +1,6 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
-import {About, Checkout, Home, Login, Order, Phone, PhoneDetail, Register} from "../pages";
+import {About, Checkout, Home, Login, Order, Orders, Phone, PhoneDetail, Register, ThankYou} from "../pages";
 import {ClientLayout} from "../layouts/ClientLayout";
 
 
@@ -44,9 +44,14 @@ export const router = createBrowserRouter([
                     {
                         path: "pedidos",
                         element: <Order/>
+                    },
+                    {
+                        path: 'pedidos/:id',
+                        element: <Orders/>
                     }
                 ]
             },
+
 
         ],
 
@@ -56,5 +61,10 @@ export const router = createBrowserRouter([
         path: '/checkout',
         element: <Checkout/>
 
-    }
+    },
+    {
+        path: '/checkout/:id/thank-you',
+        element: <ThankYou/>
+    },
+
 ])

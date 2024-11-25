@@ -6,3 +6,5 @@ export * from "./login/Login"
 export * from "./register/Register"
 export * from "./order/Order"
 export * from "./checkout/Checkout"
+export * from './thank-you/ThankYou'
+export * from "./order/Orders"
