@@ -100,35 +100,46 @@ export const createOrder = async (order: Order) => {
 }
 
 
-export const getOrderByCustomerId = async () => {
-    const {error, data} = await supabase.auth.getUser();
+export const getOrdersByCustomerId = async () => {
+    const {data, error} = await supabase.auth.getUser();
+
     if (error) {
+        console.log(error);
         throw new Error(error.message);
     }
-    const userId = data.user?.id;
-    const {
-        data: customer,
-        error: customerError
-    } = await supabase.from("customers").select('id').eq('user_id', userId).single();
 
+    const {data: customer, error: customerError} = await supabase
+        .from('customers')
+        .select('id')
+        .eq('user_id', data.user.id)
+        .single();
 
     if (customerError) {
+        console.log(customerError);
         throw new Error(customerError.message);
     }
+
     const customerId = customer.id;
-    const {
-        data: orders,
-        error: orderError
-    } = await supabase.from('orders').select('id, total_amount, status, create_at ').eq('customer_id', customerId).order('created_at', {
-        ascending: false
-    });
-    if (orderError) {
-        throw new Error(orderError.message);
+
+    const {data: orders, error: ordersError} = await supabase
+        .from('orders')
+        .select('id, total_amount, status, created_at')
+        .eq('customer_id', customerId)
+        .order('created_at', {
+            ascending: false,
+        });
+
+    if (ordersError) {
+        console.log(ordersError);
+        throw new Error(ordersError.message);
     }
 
-    return orders;
-
-}
+    // Mapear los datos para asegurar que status sea de tipo OrderStatus
+    return orders.map(order => ({
+        ...order,
+        status: order.status as OrderStatus
+    }));
+};
 
 
 export const getOrderById = async (orderId: string) => {
@@ -173,6 +184,7 @@ export const getOrderById = async (orderId: string) => {
         },
         totalAmount: order.total_amount,
         status: order.status,
+        createAt: order.created_at,
         address: {
             addressLine1: order.addresses?.address_line1,
             addressLine2: order.addresses?.address_line2,

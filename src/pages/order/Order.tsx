@@ -1,35 +1,75 @@
-import {Link} from "react-router-dom";
+import {useNavigate, useParams} from "react-router";
+import {useOrder} from "../../hook";
+import {Loading} from "../../components";
+import {IoChevronBack} from "react-icons/io5";
+import {formatDateLong, formatUuidWithPrefix} from "../../utils";
 
+const tableHeaders = ['Producto', 'Cantidad', 'Total'];
 export const Order = () => {
+    const {id} = useParams<{ id: string }>()
+    const navigate = useNavigate();
+    const {data: order, isError, isLoading} = useOrder(id || '');
+    if (isLoading || !order) return <Loading/>;
+
+
     return (
         <>
-            <div className={"flex flex-col  items-center gap-6 "}>
-                <h1 className={"text-4xl font-bold  "}>
-                    Pedidos
-                </h1>
-                <span
-                    className={"h-7 w-7 rounded-full bg-black text-white text-[11px] flex justify-center items-center mt-1"}>
-                    30
-                </span>
-                {
-                    [1].length === 0 ? (
-                        <>
-                            <p className={"text-slate-700 text-[13px]"}>
-                                Todavia no has hecho ningun pedidos
-                            </p>
-                            <Link to={'/celulares'}
-                                  className={"bg-black text-white uppercase font-medium tracking-wide text-sm py-4 px-8 rounded-full"}>
-                                Empezar a compra
-                            </Link>
-                        </>
+            <div className={"flex flex-col justify-between items-center gap-5 md:flex-row md:gap-0"}>
+                <button
+                    className={"border rounded-full py-2 border-slate-200 px-5 flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-tighter hover:bg-stone-200 transition-all"}
 
-                    ) : (
-                        <div className={"flex flex-col  items-center gap-6 "}>
-                            tabla de ordenes
-                        </div>
-                    )
-                }
+                    onClick={() => navigate(-1)}
+                >
+                    <IoChevronBack size={18}/>
+                    Volver a los pedidos
+                </button>
+                <div className={"flex flex-col items-center gap-1.5"}>
+                    <h1 className={"text-3xl font-bold "}>Pedido # {formatUuidWithPrefix(id || '')} </h1>
+                    <p className={"text-sm"}>{formatDateLong(order.createAt)}</p>
+
+                </div>
+
+                <div></div>
+                <div></div>
+
+                <div className={"flex flex-col mt-10 mb-5 gap-10"}>
+                    <table className={"text-sm w-full caption-bottom overflow-aut"}>
+                        <thead>
+                        <tr>
+                            {tableHeaders.map((header) => (
+                                <th
+                                    key={header}
+                                    className='h-12 text-center uppercase tracking-wide text-stone-600 font-medium'
+                                >
+                                    {header}
+                                </th>
+                            ))}
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {
+                            order.orderItems.map((orderItem, i) => (
+                                <tr key={i} className={"border border-gray-300"}>
+                                    <td className={"p-4 font-medium tracking-tighter flex gap-3 items-center"}>
+                                        <img
+                                            src={orderItem.productImage}
+                                            alt={orderItem.productName}
+                                            className='h-20 w-20 object-contain rounded-lg'
+                                        />
+                                    </td>
+                                </tr>
+                            ))
+                        }
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
             </div>
+
         </>
     )
 }

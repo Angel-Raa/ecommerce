@@ -28,8 +28,8 @@ export const About = (): React.JSX.Element => {
                     <p>
                         Si necesitas más información o tienes alguna consulta, no dudes en ponerte en contacto con
                         nosotros. Escríbenos a nuestro correo electrónico:
-                        <a href="mailto:correo@celularesbaratos.com" className="text-blue-600 hover:underline">
-                            correo@celularesbaratos.com
+                        <a href="mailto:correo@zonalmovil.com" className="text-blue-600 hover:underline">
+                            correo@zonalmovil.com
                         </a>
                         o llámanos al
                         <a href="tel:8294124929" className="text-blue-600 hover:underline">

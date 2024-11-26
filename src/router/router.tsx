@@ -43,11 +43,11 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: "pedidos",
-                        element: <Order/>
+                        element: <Orders/>
                     },
                     {
                         path: 'pedidos/:id',
-                        element: <Orders/>
+                        element: <Order/>
                     }
                 ]
             },

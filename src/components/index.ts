@@ -28,3 +28,6 @@ export * from "./checkout/GridCheckout"
 export * from "./checkout/FormCheckout"
 export * from "./checkout/FormInput"
 export * from "./checkout/ItemsCheckout"
+
+
+export * from "./orders/Table"
