@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router";
-import {formatDate, formatPrice, getStatus, OrderItem} from "../../utils";
+import {formatDate, formatPrice, formatUuidWithPrefix, getStatus, OrderItem} from "../../utils";
 
 
 const tableHeaders = ['Referencia', 'Fecha', 'Estado', 'Total'];
@@ -39,7 +39,7 @@ export const Table = ({orders}: Props) => {
                             >
 
                                 <td className={"p-4 font-medium tracking-tighter"}>
-                                    {order.id}
+                                    {formatUuidWithPrefix(order.id)}
                                 </td>
                                 <td className={"p-4 font-medium tracking-tighter"}>
                                     {formatDate(order.created_at)}

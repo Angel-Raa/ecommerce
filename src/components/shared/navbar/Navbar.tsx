@@ -10,7 +10,7 @@ import {HiOutlineSearch, HiOutlineShoppingBag, HiOutlineUser} from "react-icons/
 import {Logo} from "../logo/‎Logo";
 import {useGlobalStore} from "../../../store/global.store";
 import {useCartStore} from "../../../store/cart.store";
-import {useProfile} from "../../../hook";
+import {useCustomer, useProfile} from "../../../hook";
 import {LuLoader2} from "react-icons/lu";
 
 
@@ -37,6 +37,7 @@ export const NavBar = (): React.JSX.Element => {
     const totalItemsInCart = useCartStore(state => state.totalItemsInCart);
     const {data: session, isLoading} = useProfile()
     const userId = session?.user.id
+    const {data:customer, isError, isLoading:isLoadingCustomer} = useCustomer(userId!);
 
 
     return (
@@ -70,7 +71,9 @@ export const NavBar = (): React.JSX.Element => {
                                 to='/account'
                                 className='border-2 border-slate-700 w-9 h-9 rounded-full grid place-items-center text-lg font-bold'
                             >
-                                R
+                                {
+                                    customer && customer.full_name[0]
+                                }
                             </Link>
                         </div>
                     ) : (
