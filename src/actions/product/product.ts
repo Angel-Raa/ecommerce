@@ -1,19 +1,24 @@
 import {supabase} from "../../supabase/client";
-import {Product} from "../../utils";
 
 
-export const getProducts = async (): Promise<Product[]> => {
-    const {data: products, error} = await supabase
+export const getProducts = async (page:number) => {
+    const itemsPerPage = 10;
+    const from = (page - 1) * itemsPerPage;
+    const to = from + itemsPerPage - 1;
+    const {data, error, count} = await supabase
         .from('products')
-        .select('*, variants(*)')
-        .order('created_at', {ascending: false});
+        .select('*, variants(*)', {count: 'exact'})
+        .order('created_at', {ascending: false}).range(from, to);
 
     if (error) {
         console.log(error.message);
         throw new Error(error.message);
     }
 
-    return products;
+    return {
+        data,
+        count
+    };
 };
 
 export const getFilteredProducts = async ({page = 1, brands = []}: {

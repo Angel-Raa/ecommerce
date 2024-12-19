@@ -26,7 +26,7 @@ export const Sidebar = () => {
   return (
     <>
       <div className="w-[120px] bg-stone-800 text-white flex flex-col gap-10 items-center p-5 fixed h-screen lg:w-[250px]  ">
-        <Logo isDashboard/>
+        <Logo isDashboard />
         <nav className="w-full space-y-5 flex-1">
           {dashboardLinks.map((link) => (
             <NavLink
@@ -49,12 +49,19 @@ export const Sidebar = () => {
           className={
             "bg-red-500 w-full py-[10px]  rounded-md flex items-center justify-center gap-2  font-semibold text-sm hover:underline          "
           }
-
           onClick={handleLogout}
         >
           <span className="hidden lg:block">Cerrar session</span>
           <IoLogOutOutline size={25} className="inline-block" />
         </button>
+
+        <p className="text-sm text-center hidden lg:block ">
+          &copy; 2025 - Todos los derechos reservados
+        </p>
+        <p className="text-sm text-center lg:hidden">
+          &copy;
+          2025
+        </p>
       </div>
     </>
   );
