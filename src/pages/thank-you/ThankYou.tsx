@@ -14,6 +14,7 @@ export const ThankYou = () => {
     const {isLoading:sessionLoading} = useProfile();
     const fullname = data?.customer.full_name;
     const totalAmount = data?.totalAmount || 0;
+    
 
     useEffect(() => {
         supabase.auth.onAuthStateChange(async (event, session) => {

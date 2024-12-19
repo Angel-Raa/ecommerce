@@ -10,7 +10,8 @@ export type {
     Order,
     OrderItem,
     OrderWithCustomer,
-    PreparedProducts
+    PreparedProducts,
+    DashboardLink
 } from "./definition"
 export * from "./prepareProducts"
 export * from "./formatPrice"

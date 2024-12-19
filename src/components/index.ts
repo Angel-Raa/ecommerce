@@ -31,3 +31,8 @@ export * from "./checkout/ItemsCheckout"
 
 
 export * from "./orders/Table"
+
+
+// dashboard
+
+export * from "./dashboard/Sidebar"

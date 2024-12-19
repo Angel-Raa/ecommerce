@@ -7,7 +7,12 @@ export interface NavItem {
     link: string;
     icon: React.JSX.Element | undefined
 }
-
+export interface DashboardLink {
+    id: number;
+    title: string;
+    href: string;
+    icon: React.JSX.Element ; // Si estás usando JSX para los íconos
+  }
 export interface SocialLinks {
     link: string;
     icon: React.JSX.Element;
