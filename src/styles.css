@@ -6,3 +6,27 @@
 .btn-paginated {
     @apply border border-slate-700  rounded-md font-semibold py-1 px-3 hover:bg-slate-700 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:border-slate-700 disabled:text-slate-800 disabled:hover:bg-slate-700
 }
+
+.btn-paginated {
+	@apply border border-slate-700 rounded-md font-semibold text-xs py-1 px-3 hover:bg-slate-700 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:border-slate-800 disabled:text-slate-800 disabled:hover:bg-white disabled:hover:text-slate-700;
+}
+
+.btn-primary {
+	@apply bg-black text-white py-2 px-3 text-sm font-medium rounded-md;
+}
+
+.btn-secondary-outline {
+	@apply border border-slate-400 text-slate-600 py-2 px-3 text-sm font-medium rounded-md;
+}
+
+/* Para Chrome, Safari, Edge y Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Para firefox */
+input[type=number]{
+	-moz-appearance: textfield;
+}

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { formSchema, FormValues } from "../../../utils";
 import { IoIosArrowBack } from "react-icons/io";
-import { Section, InputForm } from "./index";
+import { Section, InputForm, Features } from "./index";
 
 interface Props {
   title: string;
@@ -20,9 +20,9 @@ export const Form = ({ title }: Props) => {
     resolver: zodResolver(formSchema),
   });
   const navigate = useNavigate();
-  const onSubmit =  handleSubmit((data) => {
+  const onSubmit = handleSubmit((data) => {
     console.log(data);
-  })
+  });
   return (
     <div className="flex flex-col relative gap-6 ">
       <div className="flex justify-between items-center">
@@ -41,23 +41,57 @@ export const Form = ({ title }: Props) => {
           </h2>
         </div>
       </div>
-      <form  className="grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-auto flex-1" onSubmit={onSubmit}>
-
-        <Section title="Detalles de Productos" className="lg:col-span-2 lg:row-span-2">
-            <InputForm 
+      <form
+        className="grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-auto flex-1"
+        onSubmit={onSubmit}
+      >
+        <Section
+          title="Detalles de Productos"
+          className="lg:col-span-2 lg:row-span-2"
+        >
+          <InputForm
             type="text"
-            placeholder="Ejemplos: Apple"
+            placeholder="Ejemplo: iPhone 15 Pro Max"
             label="Nombre del producto"
             name="name"
             register={register}
             errors={errors}
             required
-
-            
-            
-            />
+          />
+          <Features control={control} errors={errors} />
         </Section>
+        <Section>
+          <InputForm
+            type="text"
+            label="Slug"
+            name="slug"
+            placeholder="iphone-15-pro-max"
+            register={register}
+            errors={errors}
+          />
+          <InputForm
+            type="text"
+            label="Marca"
+            name="brand"
+            placeholder="Apple"
+            register={register}
+            errors={errors}
+            required
+          />
+        </Section>
+        <div className="flex gap-3 absolute top-0 right-0">
+          <button
+            type="button"
+            className="btn-secondary-outline"
+            onClick={() => navigate(-1)}
+          >
+            Cancelar
+          </button>
 
+          <button type="submit" className="btn-primary">
+            Guardar
+          </button>
+        </div>
       </form>
     </div>
   );
