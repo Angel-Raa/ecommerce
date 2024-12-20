@@ -24,4 +24,5 @@ export {
   userRegisterSchema,
   type AddressFormValues,
   addressSchema,
+  type FormValues, formSchema
 } from "./validators";

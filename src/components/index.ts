@@ -35,3 +35,4 @@ export * from "./orders/Table";
 
 export * from "./dashboard/Sidebar";
 export * from "./dashboard/product/TableProduct";
+export * from "./dashboard/form/Form"

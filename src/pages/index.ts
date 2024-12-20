@@ -9,3 +9,4 @@ export * from "./checkout/Checkout"
 export * from './thank-you/ThankYou'
 export * from "./order/Order"
 export * from "./dashboard/DashboardProductos"
+export * from "./dashboard/DashboardNewProduct"
