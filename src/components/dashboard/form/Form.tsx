@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { formSchema, FormValues, generateSlug } from "../../../utils";
 import { IoIosArrowBack } from "react-icons/io";
-import { Section, InputForm, Features, Variants } from "./index";
+import { Section, InputForm, Features, Variants, Uploader } from "./index";
 import { useEffect } from "react";
+import { Editor } from "./Editor";
 
 interface Props {
   title: string;
@@ -93,7 +94,14 @@ export const Form = ({ title }: Props) => {
         <Section title="Variantes del Producto" className="lg:col-span-2 h-fit">
           <Variants control={control} errors={errors} register={register} />
         </Section>
-        
+
+        <Section title="Imágenes del producto">
+          <Uploader errors={errors} watch={watch} setValues={setValue} />
+        </Section>
+        <Section title="Descripción del producto" className="col-span-full">
+          <Editor setValue={setValue} errors={errors} />
+        </Section>
+
         <div className="flex gap-3 absolute top-0 right-0">
           <button
             type="button"
