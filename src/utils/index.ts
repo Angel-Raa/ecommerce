@@ -17,6 +17,7 @@ export * from "./prepareProducts";
 export * from "./formatPrice";
 export * from "./formatDate";
 export * from "./formatDateLong";
+export * from "./generateSlug";
 export { getStatus, OrderStatus } from "./status";
 export * from "./formatUuidWithPrefix";
 export {
@@ -24,5 +25,6 @@ export {
   userRegisterSchema,
   type AddressFormValues,
   addressSchema,
-  type FormValues, formSchema
+  type FormValues,
+  formSchema,
 } from "./validators";

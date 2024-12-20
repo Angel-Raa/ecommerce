@@ -1,9 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { formSchema, FormValues } from "../../../utils";
+import { formSchema, FormValues, generateSlug } from "../../../utils";
 import { IoIosArrowBack } from "react-icons/io";
-import { Section, InputForm, Features } from "./index";
+import { Section, InputForm, Features, Variants } from "./index";
+import { useEffect } from "react";
 
 interface Props {
   title: string;
@@ -23,6 +24,16 @@ export const Form = ({ title }: Props) => {
   const onSubmit = handleSubmit((data) => {
     console.log(data);
   });
+
+  const watchName = watch("name");
+  useEffect(() => {
+    if (!watchName) return;
+    const generate: string = generateSlug(watchName);
+    setValue("slug", generate, {
+      shouldValidate: true,
+    });
+  }, [watchName, setValue]);
+
   return (
     <div className="flex flex-col relative gap-6 ">
       <div className="flex justify-between items-center">
@@ -79,6 +90,10 @@ export const Form = ({ title }: Props) => {
             required
           />
         </Section>
+        <Section title="Variantes del Producto" className="lg:col-span-2 h-fit">
+          <Variants control={control} errors={errors} register={register} />
+        </Section>
+        
         <div className="flex gap-3 absolute top-0 right-0">
           <button
             type="button"
