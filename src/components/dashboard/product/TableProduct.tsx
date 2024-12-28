@@ -111,11 +111,11 @@ export const TableProduct = () => {
                       </select>
                     </td>
                     <CellTableProduct
-                      content={formatPrice(selectedVariant.price)}
+                      content={'10'}
                     />
 
                     <CellTableProduct
-                      content={selectedVariant.stock.toString()}
+                      content={'10'}
                     />
 
                     <CellTableProduct content={formatDateLong(product.created_at)} />

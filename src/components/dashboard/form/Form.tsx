@@ -1,16 +1,19 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
-import { formSchema, FormValues, generateSlug } from "../../../utils";
-import { IoIosArrowBack } from "react-icons/io";
-import { Section, InputForm, Features, Variants, Uploader } from "./index";
-import { useEffect } from "react";
-import { Editor } from "./Editor";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router";
+import {formSchema, FormValues, generateSlug} from "../../../utils";
+import {IoIosArrowBack} from "react-icons/io";
+import {Features, InputForm, Section, Uploader, Variants} from "./index";
+import {useEffect} from "react";
+import {Editor} from "./Editor";
+import {useCreateProduct} from "../../../hook";
+import {Loading} from "../../shared/loading/Loading";
 
 interface Props {
   title: string;
 }
 export const Form = ({ title }: Props) => {
+  const {mutate: create, isPending} = useCreateProduct()
   const {
     register,
     handleSubmit,
@@ -22,11 +25,24 @@ export const Form = ({ title }: Props) => {
     resolver: zodResolver(formSchema),
   });
   const navigate = useNavigate();
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
-  });
+
 
   const watchName = watch("name");
+  const onSubmit = handleSubmit((data) => {
+    const features = data.features.map(feature => feature.value);
+
+    create({
+      name: data.name,
+      brand: data.brand,
+      slug: data.slug,
+      variants: data.variants,
+      images: data.images,
+      description: data.description,
+      features,
+    })
+  });
+
+
   useEffect(() => {
     if (!watchName) return;
     const generate: string = generateSlug(watchName);
@@ -35,6 +51,7 @@ export const Form = ({ title }: Props) => {
     });
   }, [watchName, setValue]);
 
+  if(isPending ) return <Loading />;
   return (
     <div className="flex flex-col relative gap-6 ">
       <div className="flex justify-between items-center">

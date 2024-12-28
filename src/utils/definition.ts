@@ -1,6 +1,7 @@
 import React from "react";
 import { Json } from "../supabase/supabase";
 import { OrderStatus } from "./status";
+import {JSONContent} from "@tiptap/react";
 
 export interface NavItem {
   title: string;
@@ -119,4 +120,22 @@ export interface OrderWithCustomer {
     full_name: string;
     email: string;
   } | null;
+}
+
+export interface ProductInput {
+  name: string;
+  brand: string;
+  slug: string;
+  features: string[];
+  description: JSONContent;
+  images: File[];
+  variants: VariantInput[];
+}
+export interface VariantInput {
+  id?: string;
+  stock: number;
+  price: number;
+  storage: string;
+  color: string;
+  colorName: string;
 }

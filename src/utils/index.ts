@@ -12,6 +12,7 @@ export type {
   OrderWithCustomer,
   PreparedProducts,
   DashboardLink,
+    ProductInput, VariantInput
 } from "./definition";
 export * from "./prepareProducts";
 export * from "./formatPrice";

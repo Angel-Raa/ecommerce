@@ -47,15 +47,18 @@ export const Variants = ({ control, errors, name, register }: Props) => {
     name: fields.map((_, index) => `variants.${index}.colorName` as const),
   });
   const getFirstError = (
-    variantErros: FieldErrors<FormValues["variants"][number]>
+      variantErros: FieldErrors<FormValues['variants'][number]>
   ) => {
     if (variantErros) {
-      const keys = Object.keys(variantErros) as (keyof typeof variantErros)[];
+      const keys = Object.keys(
+          variantErros
+      ) as (keyof typeof variantErros)[];
       if (keys.length > 0) {
         return variantErros[keys[0]]?.message;
       }
     }
   };
+
   const toggleColorActive = (index: number) => {
     setColorActive((prev) =>
       prev.map((item, i) => (i === index ? !item : item))
@@ -149,9 +152,9 @@ export const Variants = ({ control, errors, name, register }: Props) => {
               </div>
               {/** ERRORS */}
               {errors.variants && errors.variants[index] && (
-                <p className="text-red-500 text-sm mt-1">
-                  {getFirstError(errors.variants[index])}
-                </p>
+                  <p className='text-red-500 text-xs mt-1'>
+                    {getFirstError(errors.variants[index] as any)}
+                  </p>
               )}
             </div>
           ))}
