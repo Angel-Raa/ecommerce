@@ -1,70 +1,52 @@
 # Ecommerce
 
-![Ejemplo del proyecto](https://github.com/Angel-Raa/ecommerce/blob/main/sample/cap.png)
 
-**Estado:** Proyecto en Proceso
+**Estado del proyecto:** En desarrollo 🚧
 
-## Tecnologías Utilizadas
+## Descripción
 
-- **Frontend**: 
+Este proyecto es una aplicación de comercio electrónico diseñada para ofrecer una experiencia de compra en línea intuitiva y eficiente. Incluye funcionalidades clave como navegación por productos, autenticación y gestión de datos utilizando tecnologías modernas.
+
+## Tecnologías utilizadas
+
+- **Frontend**:
   - [React](https://reactjs.org/)
-  - **TypeScript** 
-
-- **Backend**:
-  - [Java](https://www.oracle.com/java/) 
-  - [Spring Boot](https://spring.io/projects/spring-boot)
-
-- **Base de Datos**:
-  - [PostgreSQL](https://www.postgresql.org/) 
-
-- **Contenedorización**:
-  - [Docker](https://www.docker.com/) 
-
-## Características (Planes)
-
-- **Autenticación y Autorización**: Sistema de inicio de sesión y registro seguro con control de permisos.
-- **Gestión de Productos**: Creación, edición, eliminación y visualización de productos.
-- **Carrito de Compras**: Funcionalidad para añadir, actualizar y eliminar productos del carrito.
-- **Procesamiento de Pagos**: Integración con pasarelas de pago para transacciones seguras.
-- **Interfaz Amigable**: Diseño intuitivo y responsivo para mejorar la experiencia del usuario.
+  - **TypeScript**
+  - **Supabase**
 
 ## Instalación
 
-1. Clona el repositorio:
+Sigue estos pasos para configurar el proyecto localmente:
+
+1. Clona este repositorio en tu máquina:
    ```bash
    git clone https://github.com/Angel-Raa/ecommerce.git
    ```
+2. Accede al directorio del proyecto:
+   ```bash
+   cd ecommerce
+   ```
+3. Instala las dependencias necesarias:
+   ```bash
+   npm install
+   ```
+4. Configura las variables de entorno según el archivo `.env.example`.
 
-# Getting Started with Create React App
+5. Inicia el proyecto:
+   ```bash
+   npm start
+   ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contribución
 
-## Available Scripts
+¡Las contribuciones son bienvenidas! Si deseas contribuir:
+1. Realiza un fork del repositorio.
+2. Crea una rama para tu funcionalidad o corrección:
+   ```bash
+   git checkout -b feature/nueva-funcionalidad
+   ```
+3. Realiza tus cambios y confirma los commits.
+4. Envía un pull request para revisión.
 
-In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
 
