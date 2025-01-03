@@ -7,7 +7,7 @@ import {supabase} from "../supabase/client";
 import {Loading} from "../components";
 
 export const ClientLayout = () => {
-    const {data: session, isLoading: isLoadingSession} = useProfile()
+    const { isLoading: isLoadingSession} = useProfile()
     const navigate = useNavigate();
     useEffect(() => {
         supabase.auth.onAuthStateChange(async (event, session) => {

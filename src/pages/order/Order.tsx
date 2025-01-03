@@ -8,7 +8,7 @@ const tableHeaders = ['Producto', 'Cantidad', 'Total'];
 export const Order = () => {
     const {id} = useParams<{ id: string }>()
     const navigate = useNavigate();
-    const {data: order, isError, isLoading} = useOrder(id || '');
+    const {data: order, isLoading} = useOrder(id || '');
     if (isLoading || !order) return <Loading/>;
 
 

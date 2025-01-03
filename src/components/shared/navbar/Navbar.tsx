@@ -37,7 +37,7 @@ export const NavBar = (): React.JSX.Element => {
     const totalItemsInCart = useCartStore(state => state.totalItemsInCart);
     const {data: session, isLoading} = useProfile()
     const userId = session?.user.id
-    const {data:customer, isError, isLoading:isLoadingCustomer} = useCustomer(userId!);
+    const {data:customer} = useCustomer(userId!);
 
 
     return (

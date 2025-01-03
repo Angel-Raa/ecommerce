@@ -4,7 +4,7 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useProducts } from "../../../hook";
 import { Loading } from "../../shared/loading/Loading";
-import { formatDateLong, formatPrice } from "../../../utils";
+import { formatDateLong } from "../../../utils";
 import { Pagination } from "../../shared/pagination/Pagination";
 import { CellTableProduct } from "./CellTableProduct";
 
