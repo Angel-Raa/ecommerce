@@ -12,7 +12,7 @@ export const ClientLayout = () => {
     useEffect(() => {
         supabase.auth.onAuthStateChange(async (event, session) => {
             if (event === 'SIGNED_OUT' || !session) {
-                navigate('/login');
+                navigate('/login', {replace: true});
             }
         })
     }, [navigate]);
