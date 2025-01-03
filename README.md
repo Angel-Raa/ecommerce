@@ -2,10 +2,6 @@
 
 **Estado del proyecto:** En desarrollo 🚧
 
-## Descripción
-
-Este proyecto es una aplicación de comercio electrónico diseñada para ofrecer una experiencia de compra en línea intuitiva y eficiente. Incluye funcionalidades clave como navegación por productos, autenticación y gestión de datos utilizando tecnologías modernas.
-
 ## URL del proyecto
 
 Puedes acceder al proyecto en línea desde el siguiente enlace:
