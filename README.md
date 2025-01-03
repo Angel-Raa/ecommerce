@@ -1,11 +1,15 @@
 # Ecommerce
 
-
 **Estado del proyecto:** En desarrollo 🚧
 
 ## Descripción
 
 Este proyecto es una aplicación de comercio electrónico diseñada para ofrecer una experiencia de compra en línea intuitiva y eficiente. Incluye funcionalidades clave como navegación por productos, autenticación y gestión de datos utilizando tecnologías modernas.
+
+## URL del proyecto
+
+Puedes acceder al proyecto en línea desde el siguiente enlace:
+[Zonal Movil](https://zonalmovil.netlify.app/)
 
 ## Tecnologías utilizadas
 
@@ -37,9 +41,15 @@ Sigue estos pasos para configurar el proyecto localmente:
    npm start
    ```
 
+## Contacto
+
+Si tienes alguna pregunta o deseas ponerte en contacto conmigo, puedes escribirme a:
+[angelagueror23@gmail.com](mailto:angelagueror23@gmail.com)
+
 ## Contribución
 
 ¡Las contribuciones son bienvenidas! Si deseas contribuir:
+
 1. Realiza un fork del repositorio.
 2. Crea una rama para tu funcionalidad o corrección:
    ```bash
