@@ -71,7 +71,6 @@ export const TableProduct = () => {
             <tbody>
               {products.map((product, i) => {
                 const selectedVariantIndex = selectedVariants[product.id] ?? 0;
-                const selectedVariant = product.variants[selectedVariantIndex];
 
                 return (
                   <tr key={i}>
